@@ -458,49 +458,49 @@ function bitrateinfoParser(z){
 
         // Word is NaN - do heuristic analysis.
         if (isNaN(bitrateinfo.query[0][z])) {
-
-            heuristics:
             // Iterate over items in the dataset.
-            for (x=0; x < bitrateinfo.dataset.length; x++) {
-                var lexicon = bitrateinfo.dataset[x].lexicon.split(" ");
+            heuristics: {
+                for (x=0; x < bitrateinfo.dataset.length; x++) {
+                    var lexicon = bitrateinfo.dataset[x].lexicon.split(" ");
 
-                // Iterate over the lexicon for this item.
-                for (y=0; y < lexicon.length; y++) {
-                    if (lexicon[y].toLowerCase() == bitrateinfo.query[0][z].toLowerCase()) {
-                        parsed.identifier = bitrateinfo.dataset[x].identifier;
-                        parsed.datatype = bitrateinfo.dataset[x].datatype;
-                        parsed.magnitude = bitrateinfo.dataset[x].magnitude;
-                        parsed.canonical = bitrateinfo.dataset[x].canonical;
+                    // Iterate over the lexicon for this item.
+                    for (y=0; y < lexicon.length; y++) {
+                        if (lexicon[y].toLowerCase() == bitrateinfo.query[0][z].toLowerCase()) {
+                            parsed.identifier = bitrateinfo.dataset[x].identifier;
+                            parsed.datatype = bitrateinfo.dataset[x].datatype;
+                            parsed.magnitude = bitrateinfo.dataset[x].magnitude;
+                            parsed.canonical = bitrateinfo.dataset[x].canonical;
 
-                        if (bitrateinfo.dataset[x].identifier != "keyword")
-                            parsed.singular = bitrateinfo.dataset[x].singular;
+                            if (bitrateinfo.dataset[x].identifier != "keyword")
+                                parsed.singular = bitrateinfo.dataset[x].singular;
 
-                        if (bitrateinfo.dataset[x].identifier == "keyword") {
+                            if (bitrateinfo.dataset[x].identifier == "keyword") {
 
-                            // Found a keyword!
-                            bitrateinfo.values[bitrateinfo.values.length] = {
-                                identifier: "keyword",
-                                datatype: bitrateinfo.dataset[x].datatype,
-                                quantity: bitrateinfo.dataset[x].quantity,
-                                magnitude: bitrateinfo.dataset[x].magnitude,
-                                canonical: bitrateinfo.dataset[x].canonical
-                            };
+                                // Found a keyword!
+                                bitrateinfo.values[bitrateinfo.values.length] = {
+                                    identifier: "keyword",
+                                    datatype: bitrateinfo.dataset[x].datatype,
+                                    quantity: bitrateinfo.dataset[x].quantity,
+                                    magnitude: bitrateinfo.dataset[x].magnitude,
+                                    canonical: bitrateinfo.dataset[x].canonical
+                                };
 
-                        } else if (bitrateinfo.values.length == 2 && bitrateinfo.dataset[x].identifier == "unit") {
+                            } else if (bitrateinfo.values.length == 2 && bitrateinfo.dataset[x].identifier == "unit") {
 
-                            // Found a hint!
-                            bitrateinfo.values[bitrateinfo.values.length] = {
-                                identifier: bitrateinfo.dataset[x].identifier,
-                                datatype: bitrateinfo.dataset[x].datatype,
-                                quantity: bitrateinfo.dataset[x].quantity,
-                                magnitude: bitrateinfo.dataset[x].magnitude,
-                                canonical: bitrateinfo.dataset[x].canonical,
-                                singular: bitrateinfo.dataset[x].singular
-                            };
+                                // Found a hint!
+                                bitrateinfo.values[bitrateinfo.values.length] = {
+                                    identifier: bitrateinfo.dataset[x].identifier,
+                                    datatype: bitrateinfo.dataset[x].datatype,
+                                    quantity: bitrateinfo.dataset[x].quantity,
+                                    magnitude: bitrateinfo.dataset[x].magnitude,
+                                    canonical: bitrateinfo.dataset[x].canonical,
+                                    singular: bitrateinfo.dataset[x].singular
+                                };
 
+                            }
+
+                            break heuristics;
                         }
-
-                        break heuristics;
                     }
                 }
             }
@@ -625,16 +625,16 @@ function bitrateinfoCalculate() {
             computed.hint = true;
 
         } else {
-
-            preferred:
             // Search for a preferred display unit.
-            for (a=0; a < bitrateinfo.dataset.length; a++) {
-                if ((bitrateinfo.dataset[a].datatype == computed.datatype) && bitrateinfo.dataset[a].preference == true) {
-                    computed.quantity = (computed.quantity / bitrateinfo.dataset[a].magnitude);
-                    computed.magnitude = bitrateinfo.dataset[a].magnitude;
-                    computed.canonical = bitrateinfo.dataset[a].canonical;
-                    computed.singular = bitrateinfo.dataset[a].singular;
-                    break preferred;
+            preferred: {
+                for (a=0; a < bitrateinfo.dataset.length; a++) {
+                    if ((bitrateinfo.dataset[a].datatype == computed.datatype) && bitrateinfo.dataset[a].preference == true) {
+                        computed.quantity = (computed.quantity / bitrateinfo.dataset[a].magnitude);
+                        computed.magnitude = bitrateinfo.dataset[a].magnitude;
+                        computed.canonical = bitrateinfo.dataset[a].canonical;
+                        computed.singular = bitrateinfo.dataset[a].singular;
+                        break preferred;
+                    }
                 }
             }
         }
