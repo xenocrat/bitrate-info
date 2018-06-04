@@ -6,7 +6,7 @@ var bitrateinfo = {
     example: 0
 };
 
-// Time
+// Time:
 
 bitrateinfo.dataset[bitrateinfo.dataset.length] = {
     canonical: "seconds",
@@ -33,7 +33,7 @@ bitrateinfo.dataset[bitrateinfo.dataset.length] = {
     magnitude: 3600
 };
 
-// Rate
+// Rate:
 
 bitrateinfo.dataset[bitrateinfo.dataset.length] = {
     canonical: "bits per second",
@@ -85,7 +85,7 @@ bitrateinfo.dataset[bitrateinfo.dataset.length] = {
     magnitude: 8000000000
 };
 
-// Size
+// Size:
 
 bitrateinfo.dataset[bitrateinfo.dataset.length] = {
     canonical: "bytes",
@@ -161,7 +161,7 @@ bitrateinfo.dataset[bitrateinfo.dataset.length] = {
     magnitude: 1099511627776
 };
 
-// Keywords
+// Keywords:
 
 bitrateinfo.dataset[bitrateinfo.dataset.length] = {
     canonical: "CD-R 74 minutes (Audio)",
@@ -331,7 +331,7 @@ function multiDimensionalArray(iRows,iCols) {
     return(a); 
 }
 
-// Utility to manipulate HTML classes
+// Utility to manipulate HTML classes.
 function classUtil(a,o,c1,c2) {
     switch (a) {
         case "swap":
@@ -340,7 +340,6 @@ function classUtil(a,o,c1,c2) {
         case "add":
             if (!classUtil("check", o, c1))
                 o.className += o.className ? " " + c1 : c1 ;
-
             break;
         case "remove":
             var rep = o.className.match(" " + c1) ? " " + c1 : c1 ;
@@ -356,7 +355,7 @@ function isInt(value) {
     return !isNaN(parseInt(value,10)) && (parseFloat(value,10) == parseInt(value,10)); 
 }
 
-// Add leading zeros to a number
+// Add leading zeros to a number.
 function leadingZeros(theNumber, max) {
     var numStr = String(theNumber);
 
@@ -367,36 +366,36 @@ function leadingZeros(theNumber, max) {
     return numStr;
 }
 
-// Clean arrays of nulls
+// Clean arrays of nulls.
 Array.prototype.clean = function(deleteValue) {
-  for (var i = 0; i < this.length; i++) {
-    if (this[i] == deleteValue) {         
-      this.splice(i, 1);
-      i--;
+    for (var i = 0; i < this.length; i++) {
+        if (this[i] == deleteValue) {         
+          this.splice(i, 1);
+          i--;
+        }
     }
-  }
 
-  return this;
+    return this;
 }
 
 function longRandom(range) {
     return Math.round(Math.random() * range);
 }
 
-// Splice values into strings
+// Splice values into strings.
 String.prototype.splice = function(idx, rem, s) {
     return (this.slice(0,idx) + s + this.slice(idx + Math.abs(rem)));
 };
 
 function bitrateinfoInit() {
-    // Pick a random start for the loop of examples
+    // Pick a random start for the loop of examples.
     bitrateinfo.example = longRandom(bitrateinfo.examples.length - 1);
-    // Add handlers
+    // Add handlers.
     document.getElementById("bitrateinfo_form").addEventListener("submit", bitrateinfoUpdate);
     document.getElementById("bitrateinfo_input").addEventListener("change", bitrateinfoUpdate);
     document.getElementById("button_example").addEventListener("click", bitrateinfoExample);
     document.getElementById("button_lexicon").addEventListener("click", bitrateinfoLexicon);
-    // Unhide
+    // Unhide the app.
     classUtil("remove", document.getElementById("bitrateinfo_container"), "hidden");
 }
 
@@ -421,7 +420,8 @@ function bitrateinfoQuery() {
 
     bitrateinfo.query[0] = query.split(" ").clean("");
 
-    for (z=0; z < bitrateinfo.query[0].length; z++) { // Zero the "parsed" flag
+    for (z=0; z < bitrateinfo.query[0].length; z++) {
+       // Zero the "parsed" flag.
        bitrateinfo.query[1][z] = false;
     }
 }
@@ -453,15 +453,19 @@ function bitrateinfoParser(z){
         singular: undefined
     };
 
-    if (!bitrateinfo.query[1][z]) { // Check the "parsed" flag before proceeding
+    // Check the "parsed" flag before proceeding.
+    if (!bitrateinfo.query[1][z]) {
 
-        // Word is NaN - do heuristic analysis
+        // Word is NaN - do heuristic analysis.
         if (isNaN(bitrateinfo.query[0][z])) {
 
             heuristics:
-            for (x=0; x < bitrateinfo.dataset.length; x++) { // Iterate over items in the dataset
+            // Iterate over items in the dataset.
+            for (x=0; x < bitrateinfo.dataset.length; x++) {
                 var lexicon = bitrateinfo.dataset[x].lexicon.split(" ");
-                for (y=0; y < lexicon.length; y++) { // Iterate over the lexicon for this item
+
+                // Iterate over the lexicon for this item.
+                for (y=0; y < lexicon.length; y++) {
                     if (lexicon[y].toLowerCase() == bitrateinfo.query[0][z].toLowerCase()) {
                         parsed.identifier = bitrateinfo.dataset[x].identifier;
                         parsed.datatype = bitrateinfo.dataset[x].datatype;
@@ -473,7 +477,7 @@ function bitrateinfoParser(z){
 
                         if (bitrateinfo.dataset[x].identifier == "keyword") {
 
-                            // Found a keyword
+                            // Found a keyword!
                             bitrateinfo.values[bitrateinfo.values.length] = {
                                 identifier: "keyword",
                                 datatype: bitrateinfo.dataset[x].datatype,
@@ -484,7 +488,7 @@ function bitrateinfoParser(z){
 
                         } else if (bitrateinfo.values.length == 2 && bitrateinfo.dataset[x].identifier == "unit") {
 
-                            // Found a hint
+                            // Found a hint!
                             bitrateinfo.values[bitrateinfo.values.length] = {
                                 identifier: bitrateinfo.dataset[x].identifier,
                                 datatype: bitrateinfo.dataset[x].datatype,
@@ -501,17 +505,18 @@ function bitrateinfoParser(z){
                 }
             }
 
-        // Word is a number
+        // Word is a number.
         } else if (isFinite(bitrateinfo.query[0][z].valueOf()) && (bitrateinfo.query[0][z].valueOf() > 0)) {
             parsed.identifier = "number";
             parsed.quantity = bitrateinfo.query[0][z].valueOf();
 
-            // Read-ahead in search of a unit for this number
+            // Read ahead in search of a unit for this number.
             if (bitrateinfo.query[0].length > (z+1)) {
                 var readAhead = bitrateinfoParser(z+1);
+
                 if (readAhead.identifier == "unit") {
 
-                    // Found a value
+                    // Found a value!
                     bitrateinfo.values[bitrateinfo.values.length] = {
                         identifier: "value",
                         datatype: readAhead.datatype,
@@ -520,15 +525,13 @@ function bitrateinfoParser(z){
                         canonical: readAhead.canonical,
                         singular: readAhead.singular
                     };
-
                 }
-
             }
-
         }
 
-        bitrateinfo.query[1][z] = true; // Set the "parsed" flag
-        return parsed; // Return the value - required for nested parsing
+        // Set the "parsed" flag and return the value - required for nested parsing.
+        bitrateinfo.query[1][z] = true;
+        return parsed;
     }
 }
 
@@ -543,8 +546,9 @@ function bitrateinfoCalculate() {
         hint: false
     };
 
-    if (bitrateinfo.values.length == 2 || bitrateinfo.values.length == 3) { // More than 3 values means we don't understand the query
-        // Calculating: time
+    // More than 3 values means we don't understand the query.
+    if (bitrateinfo.values.length == 2 || bitrateinfo.values.length == 3) {
+        // Calculating time:
         if (bitrateinfo.values[0].datatype == "size" && bitrateinfo.values[1].datatype == "rate") {
 
             computed.quantity = Math.round((bitrateinfo.values[0].quantity * bitrateinfo.values[0].magnitude)
@@ -565,7 +569,7 @@ function bitrateinfoCalculate() {
             computed.canonical = "seconds";
             computed.singular = "second";
 
-        // Calculating: size
+        // Calculating size:
         } else if (bitrateinfo.values[0].datatype == "time" && bitrateinfo.values[1].datatype == "rate") {
 
             computed.quantity = (((bitrateinfo.values[1].quantity * bitrateinfo.values[1].magnitude) / 8)
@@ -586,7 +590,7 @@ function bitrateinfoCalculate() {
             computed.canonical = "bytes";
             computed.singular = "byte";
 
-        // Calculating: rate
+        // Calculating rate:
         } else if (bitrateinfo.values[0].datatype == "size" && bitrateinfo.values[1].datatype == "time") {
 
             computed.quantity = (((bitrateinfo.values[0].quantity * bitrateinfo.values[0].magnitude) * 8)
@@ -609,10 +613,11 @@ function bitrateinfoCalculate() {
 
         }
 
+        // If there's a third value, try to use it as a hint.
         if ((bitrateinfo.values.length == 3) &&
             (bitrateinfo.values[2].identifier == "unit") &&
             (bitrateinfo.values[2].datatype == computed.datatype)) {
-            // If there's a third value, try to use it as a hint
+
             computed.quantity = (computed.quantity / bitrateinfo.values[2].magnitude);
             computed.magnitude = bitrateinfo.values[2].magnitude;
             computed.canonical = bitrateinfo.values[2].canonical;
@@ -620,8 +625,9 @@ function bitrateinfoCalculate() {
             computed.hint = true;
 
         } else {
-            // Search for a preferred display unit
+
             preferred:
+            // Search for a preferred display unit.
             for (a=0; a < bitrateinfo.dataset.length; a++) {
                 if ((bitrateinfo.dataset[a].datatype == computed.datatype) && bitrateinfo.dataset[a].preference == true) {
                     computed.quantity = (computed.quantity / bitrateinfo.dataset[a].magnitude);
@@ -631,7 +637,6 @@ function bitrateinfoCalculate() {
                     break preferred;
                 }
             }
-
         }
     }
 
@@ -656,10 +661,11 @@ function bitrateinfoDisplay() {
                     break;
                 default:
                     var sum = bitrateinfo.values[b].quantity, result = "";
+
                     if ((bitrateinfo.values[b].datatype == "time") &&
                         (bitrateinfo.values[b].hint != true) &&
                         (bitrateinfo.values[b].magnitude == 1)) {
-                        // Display time as hh:mm:ss if no hint was given
+                        // Display time as hh:mm:ss if no hint was given.
                         var hh = 0, mm = 0, ss = sum;
 
                         while (ss > 3599) {
@@ -677,8 +683,10 @@ function bitrateinfoDisplay() {
                         ss = leadingZeros(ss, 2);
                         result = hh + ":" + mm + ":" + ss;
                     } else {
-                        // Proceed as normal
-                        if (!isInt(sum)) sum = sum.toFixed(2);
+                        // Proceed as normal.
+                        if (!isInt(sum))
+                            sum = sum.toFixed(2);
+
                         if (sum == 1) {
                             result = (sum + " " + bitrateinfo.values[b].singular);
                         } else {
