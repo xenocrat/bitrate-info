@@ -1,0 +1,743 @@
+var bitrateinfo = {
+    query: multiDimensionalArray(2,0),
+    values: new Array(),
+    dataset: new Array(),
+    examples: new Array(),
+    example: 0
+};
+
+// Time
+
+bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+    canonical: "seconds",
+    singular: "second",
+    lexicon: "sec secs second seconds",
+    identifier: "unit",
+    datatype: "time",
+    magnitude: 1
+};
+bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+    canonical: "minutes",
+    singular: "minute",
+    lexicon: "min mins minute minutes",
+    identifier: "unit",
+    datatype: "time",
+    magnitude: 60,
+};
+bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+    canonical: "hours",
+    singular: "hour",
+    lexicon: "hr hrs hour hours",
+    identifier: "unit",
+    datatype: "time",
+    magnitude: 3600
+};
+
+// Rate
+
+bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+    canonical: "bits per second",
+    singular: "bit per second",
+    lexicon: "bits bits/s b/s bps",
+    identifier: "unit",
+    datatype: "rate",
+    magnitude: 1
+};
+bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+    canonical: "kilobits per second",
+    singular: "kilobit per second",
+    lexicon: "kilobits kilobits/s kb/s kbps",
+    identifier: "unit",
+    datatype: "rate",
+    magnitude: 1000
+};
+bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+    canonical: "megabits per second",
+    singular: "megabit per second",
+    lexicon: "megabits megabits/s mb/s mbps",
+    identifier: "unit",
+    datatype: "rate",
+    magnitude: 1000000,
+    preference: true
+};
+bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+    canonical: "gigabits per second",
+    singular: "gigabit per second",
+    lexicon: "gigabits gigabits/s gb/s gbps",
+    identifier: "unit",
+    datatype: "rate",
+    magnitude: 1000000000
+};
+bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+    canonical: "megabytes per second",
+    singular: "megabyte per second",
+    lexicon: "m/s",
+    identifier: "unit",
+    datatype: "rate",
+    magnitude: 8000000
+};
+bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+    canonical: "gigabytes per second",
+    singular: "gigabyte per second",
+    lexicon: "g/s",
+    identifier: "unit",
+    datatype: "rate",
+    magnitude: 8000000000
+};
+
+// Size
+
+bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+    canonical: "bytes",
+    singular: "byte",
+    lexicon: "byte bytes",
+    identifier: "unit",
+    datatype: "size",
+    magnitude: 1
+};
+bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+    canonical: "kilobytes",
+    singular: "kilobyte",
+    lexicon: "kilobyte kilobytes KB KBs kilo kilos",
+    identifier: "unit",
+    datatype: "size",
+    magnitude: 1000
+};
+bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+    canonical: "megabytes",
+    singular: "megabyte",
+    lexicon: "megabyte megabytes MB MBs meg megs",
+    identifier: "unit",
+    datatype: "size",
+    magnitude: 1000000,
+    preference: true
+};
+bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+    canonical: "gigabytes",
+    singular: "gigabyte",
+    lexicon: "gigabyte gigabytes GB GBs gig gigs",
+    identifier: "unit",
+    datatype: "size",
+    magnitude: 1000000000
+};
+bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+    canonical: "terabytes",
+    singular: "terabyte",
+    lexicon: "terabyte terabytes TB TBs",
+    identifier: "unit",
+    datatype: "size",
+    magnitude: 1000000000000
+};
+bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+    canonical: "kibibytes",
+    singular: "kibibyte",
+    lexicon: "kibibyte kibibytes KiB KiBs",
+    identifier: "unit",
+    datatype: "size",
+    magnitude: 1024
+};
+bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+    canonical: "mebibytes",
+    singular: "mebibyte",
+    lexicon: "mebibyte mebibytes MiB MiBs",
+    identifier: "unit",
+    datatype: "size",
+    magnitude: 1048576
+};
+bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+    canonical: "gibibytes",
+    singular: "gibibyte",
+    lexicon: "gibibyte gibibytes GiB GiBs",
+    identifier: "unit",
+    datatype: "size",
+    magnitude: 1073741824
+};
+bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+    canonical: "tebibytes",
+    singular: "tebibyte",
+    lexicon: "tebibyte tebibytes TiB TiBs",
+    identifier: "unit",
+    datatype: "size",
+    magnitude: 1099511627776
+};
+
+// Keywords
+
+bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+    canonical: "CD-R 74 minutes (Audio)",
+    lexicon: "cd",
+    identifier: "keyword",
+    datatype: "size",
+    quantity: 783216000,
+    magnitude: 1
+};
+bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+    canonical: "CD-R 80 minutes (Mode 1)",
+    lexicon: "cdr cdrom",
+    identifier: "keyword",
+    datatype: "size",
+    quantity: 737280000,
+    magnitude: 1
+};
+bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+    canonical: "DVD±R SL",
+    lexicon: "dvd dvdr dvdsl dvd5",
+    identifier: "keyword",
+    datatype: "size",
+    quantity: 4707319808,
+    magnitude: 1
+};
+bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+    canonical: "DVD±R DL",
+    lexicon: "dvddl dvd9",
+    identifier: "keyword",
+    datatype: "size",
+    quantity: 8543666176,
+    magnitude: 1
+};
+bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+    canonical: "BD-R 25",
+    lexicon: "bdr bdr25 bluray",
+    identifier: "keyword",
+    datatype: "size",
+    quantity: 25025314816,
+    magnitude: 1
+};
+bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+    canonical: "BD-R 50",
+    lexicon: "bdr50",
+    identifier: "keyword",
+    datatype: "size",
+    quantity: 50050629632,
+    magnitude: 1
+};
+bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+    canonical: "Sony XDCAM EX",
+    lexicon: "xdcamex",
+    identifier: "keyword",
+    datatype: "rate",
+    quantity: 35000000,
+    magnitude: 1
+};
+bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+    canonical: "Sony HDCAM",
+    lexicon: "hdcam",
+    identifier: "keyword",
+    datatype: "rate",
+    quantity: 135000000,
+    magnitude: 1
+};
+bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+    canonical: "Sony HDCAM SR",
+    lexicon: "hdcamsr",
+    identifier: "keyword",
+    datatype: "rate",
+    quantity: 440000000,
+    magnitude: 1
+};
+bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+    canonical: "ProRes 422",
+    lexicon: "prores prores422",
+    identifier: "keyword",
+    datatype: "rate",
+    quantity: 122000000,
+    magnitude: 1
+};
+bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+    canonical: "Avid DNxHD 145",
+    lexicon: "dnxhd dnxhd145",
+    identifier: "keyword",
+    datatype: "rate",
+    quantity: 145000000,
+    magnitude: 1
+};
+bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+    canonical: "Avid DNxHD 220",
+    lexicon: "dnxhd220",
+    identifier: "keyword",
+    datatype: "rate",
+    quantity: 220000000,
+    magnitude: 1
+};
+bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+    canonical: "Compact Disc Digital Audio",
+    lexicon: "cdda audio",
+    identifier: "keyword",
+    datatype: "rate",
+    quantity: 1411200,
+    magnitude: 1
+};
+bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+    canonical: "PCM Stereo 16-Bit",
+    lexicon: "pcm stereo",
+    identifier: "keyword",
+    datatype: "rate",
+    quantity: 1536000,
+    magnitude: 1
+};
+bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+    canonical: "PCM Mono 16-Bit",
+    lexicon: "mono",
+    identifier: "keyword",
+    datatype: "rate",
+    quantity: 768000,
+    magnitude: 1
+};
+bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+    canonical: "PCM Stereo 32-Bit",
+    lexicon: "float",
+    identifier: "keyword",
+    datatype: "rate",
+    quantity: 768000,
+    magnitude: 1
+};
+
+bitrateinfo.examples[bitrateinfo.examples.length] = "5 minutes at 800 Kbps measured in mebibytes";
+bitrateinfo.examples[bitrateinfo.examples.length] = "1 hour of xdcam-ex in GBs";
+bitrateinfo.examples[bitrateinfo.examples.length] = "60 minutes on blu-ray";
+bitrateinfo.examples[bitrateinfo.examples.length] = "How much audio fits on a cd?";
+bitrateinfo.examples[bitrateinfo.examples.length] = "40 gigs of dnxhd";
+bitrateinfo.examples[bitrateinfo.examples.length] = "10 secs @ 50 mbps";
+bitrateinfo.examples[bitrateinfo.examples.length] = "proRes422 for 3 hrs in gigabytes";
+bitrateinfo.examples[bitrateinfo.examples.length] = "25 mbps for 63 minutes";
+bitrateinfo.examples[bitrateinfo.examples.length] = "Space required for 25 mins at 8 Mb/s";
+bitrateinfo.examples[bitrateinfo.examples.length] = "dvd9 at 8 mbps in hours";
+bitrateinfo.examples[bitrateinfo.examples.length] = "stereo for 8 hours";
+bitrateinfo.examples[bitrateinfo.examples.length] = "hdcam-sr on bdr-50 hrs";
+bitrateinfo.examples[bitrateinfo.examples.length] = "What's the data rate of a 25gb file with 35 mins duration?";
+bitrateinfo.examples[bitrateinfo.examples.length] = "1.2 Gbps for 60 secs";
+bitrateinfo.examples[bitrateinfo.examples.length] = "1 Mbps on cdr";
+bitrateinfo.examples[bitrateinfo.examples.length] = "cdda on cd";
+bitrateinfo.examples[bitrateinfo.examples.length] = "2 hours on blu-ray";
+bitrateinfo.examples[bitrateinfo.examples.length] = "What bitrate for a 25 min bluray?";
+bitrateinfo.examples[bitrateinfo.examples.length] = "90 mins at 50 mb/s in GiB";
+bitrateinfo.examples[bitrateinfo.examples.length] = "120 minutes on DVD-DL in kbps";
+bitrateinfo.examples[bitrateinfo.examples.length] = "dnxhd220 for 180 mins in GiB";
+bitrateinfo.examples[bitrateinfo.examples.length] = "float on cdr";
+bitrateinfo.examples[bitrateinfo.examples.length] = "Show me 30 minutes of hdcam in GB";
+bitrateinfo.examples[bitrateinfo.examples.length] = "mono for 2.5 hours";
+
+function multiDimensionalArray(iRows,iCols) {
+    var a = new Array(iRows), i, j;
+
+    for (i=0; i < iRows; i++) {
+       a[i] = new Array(iCols);
+
+       for (j=0; j < iCols; j++) {
+           a[i][j] = "";
+       }
+    }
+
+    return(a); 
+}
+
+// Utility to manipulate HTML classes
+function classUtil(a,o,c1,c2) {
+    switch (a) {
+        case "swap":
+            o.className =! classUtil("check", o, c1) ? o.className.replace(c2,c1) : o.className.replace(c1,c2) ;
+            break;
+        case "add":
+            if (!classUtil("check", o, c1))
+                o.className += o.className ? " " + c1 : c1 ;
+
+            break;
+        case "remove":
+            var rep = o.className.match(" " + c1) ? " " + c1 : c1 ;
+            o.className = o.className.replace(rep, "");
+            break;
+        case "check":
+            return new RegExp("\\b" + c1 + "\\b").test(o.className);
+    }
+}
+
+// Is the number an integer?
+function isInt(value) {
+    return !isNaN(parseInt(value,10)) && (parseFloat(value,10) == parseInt(value,10)); 
+}
+
+// Add leading zeros to a number
+function leadingZeros(theNumber, max) {
+    var numStr = String(theNumber);
+
+    while (numStr.length < max) {
+        numStr = "0" + numStr;
+    }
+
+    return numStr;
+}
+
+// Clean arrays of nulls
+Array.prototype.clean = function(deleteValue) {
+  for (var i = 0; i < this.length; i++) {
+    if (this[i] == deleteValue) {         
+      this.splice(i, 1);
+      i--;
+    }
+  }
+
+  return this;
+}
+
+function longRandom(range) {
+    return Math.round(Math.random() * range);
+}
+
+// Splice values into strings
+String.prototype.splice = function(idx, rem, s) {
+    return (this.slice(0,idx) + s + this.slice(idx + Math.abs(rem)));
+};
+
+function bitrateinfoInit() {
+    // Pick a random start for the loop of examples
+    bitrateinfo.example = longRandom(bitrateinfo.examples.length - 1);
+    // Add handlers
+    document.getElementById("bitrateinfo_form").addEventListener("submit", bitrateinfoUpdate);
+    document.getElementById("bitrateinfo_input").addEventListener("change", bitrateinfoUpdate);
+    document.getElementById("button_example").addEventListener("click", bitrateinfoExample);
+    document.getElementById("button_lexicon").addEventListener("click", bitrateinfoLexicon);
+    // Unhide
+    classUtil("remove", document.getElementById("bitrateinfo_container"), "hidden");
+}
+
+function bitrateinfoReset() {
+    bitrateinfo.query[0] = new Array();
+    bitrateinfo.query[1] = new Array();
+    bitrateinfo.values = new Array();
+    classUtil("add", document.getElementById("bitrateinfo_result"), "hidden");
+    document.getElementById("bitrateinfo_value0").innerHTML = "";
+    document.getElementById("bitrateinfo_value1").innerHTML = "";
+    document.getElementById("bitrateinfo_value2").innerHTML = "";
+}
+
+function bitrateinfoQuery() {
+    var query = document.getElementById("bitrateinfo_input").value, found;
+    query = query.replace(/[^A-Za-z0-9.\/\s]/g, "");
+
+    do {
+        found = query.search(/[0-9+?][A-Za-z]/);
+        query = query.splice(found+1, 0, " ");
+    } while (found >= 0);
+
+    bitrateinfo.query[0] = query.split(" ").clean("");
+
+    for (z=0; z < bitrateinfo.query[0].length; z++) { // Zero the "parsed" flag
+       bitrateinfo.query[1][z] = false;
+    }
+}
+
+function bitrateinfoUpdate(e) {
+    e.preventDefault();
+    bitrateinfoAnalyse();
+}
+
+function bitrateinfoAnalyse(){
+    bitrateinfoReset();
+    bitrateinfoQuery();
+
+    for (z=0; z < bitrateinfo.query[0].length; z++) {
+       bitrateinfoParser(z);
+    }
+
+    bitrateinfoCalculate();
+    bitrateinfoDisplay();
+}
+
+function bitrateinfoParser(z){
+    var parsed = {
+        identifier: undefined,
+        datatype: undefined,
+        magnitude: undefined,
+        quantity: undefined,
+        canonical: undefined,
+        singular: undefined
+    };
+
+    if (!bitrateinfo.query[1][z]) { // Check the "parsed" flag before proceeding
+
+        // Word is NaN - do heuristic analysis
+        if (isNaN(bitrateinfo.query[0][z])) {
+
+            heuristics:
+            for (x=0; x < bitrateinfo.dataset.length; x++) { // Iterate over items in the dataset
+                var lexicon = bitrateinfo.dataset[x].lexicon.split(" ");
+                for (y=0; y < lexicon.length; y++) { // Iterate over the lexicon for this item
+                    if (lexicon[y].toLowerCase() == bitrateinfo.query[0][z].toLowerCase()) {
+                        parsed.identifier = bitrateinfo.dataset[x].identifier;
+                        parsed.datatype = bitrateinfo.dataset[x].datatype;
+                        parsed.magnitude = bitrateinfo.dataset[x].magnitude;
+                        parsed.canonical = bitrateinfo.dataset[x].canonical;
+
+                        if (bitrateinfo.dataset[x].identifier != "keyword")
+                            parsed.singular = bitrateinfo.dataset[x].singular;
+
+                        if (bitrateinfo.dataset[x].identifier == "keyword") {
+
+                            // Found a keyword
+                            bitrateinfo.values[bitrateinfo.values.length] = {
+                                identifier: "keyword",
+                                datatype: bitrateinfo.dataset[x].datatype,
+                                quantity: bitrateinfo.dataset[x].quantity,
+                                magnitude: bitrateinfo.dataset[x].magnitude,
+                                canonical: bitrateinfo.dataset[x].canonical
+                            };
+
+                        } else if (bitrateinfo.values.length == 2 && bitrateinfo.dataset[x].identifier == "unit") {
+
+                            // Found a hint
+                            bitrateinfo.values[bitrateinfo.values.length] = {
+                                identifier: bitrateinfo.dataset[x].identifier,
+                                datatype: bitrateinfo.dataset[x].datatype,
+                                quantity: bitrateinfo.dataset[x].quantity,
+                                magnitude: bitrateinfo.dataset[x].magnitude,
+                                canonical: bitrateinfo.dataset[x].canonical,
+                                singular: bitrateinfo.dataset[x].singular
+                            };
+
+                        }
+
+                        break heuristics;
+                    }
+                }
+            }
+
+        // Word is a number
+        } else if (isFinite(bitrateinfo.query[0][z].valueOf()) && (bitrateinfo.query[0][z].valueOf() > 0)) {
+            parsed.identifier = "number";
+            parsed.quantity = bitrateinfo.query[0][z].valueOf();
+
+            // Read-ahead in search of a unit for this number
+            if (bitrateinfo.query[0].length > (z+1)) {
+                var readAhead = bitrateinfoParser(z+1);
+                if (readAhead.identifier == "unit") {
+
+                    // Found a value
+                    bitrateinfo.values[bitrateinfo.values.length] = {
+                        identifier: "value",
+                        datatype: readAhead.datatype,
+                        quantity: bitrateinfo.query[0][z].valueOf(),
+                        magnitude: readAhead.magnitude,
+                        canonical: readAhead.canonical,
+                        singular: readAhead.singular
+                    };
+
+                }
+
+            }
+
+        }
+
+        bitrateinfo.query[1][z] = true; // Set the "parsed" flag
+        return parsed; // Return the value - required for nested parsing
+    }
+}
+
+function bitrateinfoCalculate() {
+    var computed = {
+        identifier: undefined,
+        datatype: undefined,
+        quantity: undefined,
+        magnitude: undefined,
+        canonical: undefined,
+        singular: undefined,
+        hint: false
+    };
+
+    if (bitrateinfo.values.length == 2 || bitrateinfo.values.length == 3) { // More than 3 values means we don't understand the query
+        // Calculating: time
+        if (bitrateinfo.values[0].datatype == "size" && bitrateinfo.values[1].datatype == "rate") {
+
+            computed.quantity = Math.round((bitrateinfo.values[0].quantity * bitrateinfo.values[0].magnitude)
+                                        / ((bitrateinfo.values[1].quantity * bitrateinfo.values[1].magnitude) / 8));
+            computed.datatype = "time";
+            computed.magnitude = 1;
+            computed.identifier = "result";
+            computed.canonical = "seconds";
+            computed.singular = "second";
+
+        } else if (bitrateinfo.values[0].datatype == "rate" && bitrateinfo.values[1].datatype == "size") {
+
+            computed.quantity = Math.round((bitrateinfo.values[1].quantity * bitrateinfo.values[1].magnitude)
+                                        / ((bitrateinfo.values[0].quantity * bitrateinfo.values[0].magnitude) / 8));
+            computed.datatype = "time";
+            computed.magnitude = 1;
+            computed.identifier = "result";
+            computed.canonical = "seconds";
+            computed.singular = "second";
+
+        // Calculating: size
+        } else if (bitrateinfo.values[0].datatype == "time" && bitrateinfo.values[1].datatype == "rate") {
+
+            computed.quantity = (((bitrateinfo.values[1].quantity * bitrateinfo.values[1].magnitude) / 8)
+                                * (bitrateinfo.values[0].quantity * bitrateinfo.values[0].magnitude));
+            computed.datatype = "size";
+            computed.magnitude = 1;
+            computed.identifier = "result";
+            computed.canonical = "bytes";
+            computed.singular = "byte";
+
+        } else if (bitrateinfo.values[0].datatype == "rate" && bitrateinfo.values[1].datatype == "time") {
+
+            computed.quantity = (((bitrateinfo.values[0].quantity * bitrateinfo.values[0].magnitude) / 8)
+                                * (bitrateinfo.values[1].quantity * bitrateinfo.values[1].magnitude));
+            computed.datatype = "size";
+            computed.magnitude = 1;
+            computed.identifier = "result";
+            computed.canonical = "bytes";
+            computed.singular = "byte";
+
+        // Calculating: rate
+        } else if (bitrateinfo.values[0].datatype == "size" && bitrateinfo.values[1].datatype == "time") {
+
+            computed.quantity = (((bitrateinfo.values[0].quantity * bitrateinfo.values[0].magnitude) * 8)
+                                / (bitrateinfo.values[1].quantity * bitrateinfo.values[1].magnitude));
+            computed.datatype = "rate";
+            computed.magnitude = 1;
+            computed.identifier = "result";
+            computed.canonical = "bits per second";
+            computed.singular = "bit per second";
+
+        } else if (bitrateinfo.values[0].datatype == "time" && bitrateinfo.values[1].datatype == "size") {
+
+            computed.quantity = (((bitrateinfo.values[1].quantity * bitrateinfo.values[1].magnitude) * 8)
+                                / (bitrateinfo.values[0].quantity * bitrateinfo.values[0].magnitude));
+            computed.datatype = "rate";
+            computed.magnitude = 1;
+            computed.identifier = "result";
+            computed.canonical = "bits per second";
+            computed.singular = "bit per second";
+
+        }
+
+        if ((bitrateinfo.values.length == 3) &&
+            (bitrateinfo.values[2].identifier == "unit") &&
+            (bitrateinfo.values[2].datatype == computed.datatype)) {
+            // If there's a third value, try to use it as a hint
+            computed.quantity = (computed.quantity / bitrateinfo.values[2].magnitude);
+            computed.magnitude = bitrateinfo.values[2].magnitude;
+            computed.canonical = bitrateinfo.values[2].canonical;
+            computed.singular = bitrateinfo.values[2].singular;
+            computed.hint = true;
+
+        } else {
+            // Search for a preferred display unit
+            preferred:
+            for (a=0; a < bitrateinfo.dataset.length; a++) {
+                if ((bitrateinfo.dataset[a].datatype == computed.datatype) && bitrateinfo.dataset[a].preference == true) {
+                    computed.quantity = (computed.quantity / bitrateinfo.dataset[a].magnitude);
+                    computed.magnitude = bitrateinfo.dataset[a].magnitude;
+                    computed.canonical = bitrateinfo.dataset[a].canonical;
+                    computed.singular = bitrateinfo.dataset[a].singular;
+                    break preferred;
+                }
+            }
+
+        }
+    }
+
+    bitrateinfo.values[2] = computed;
+}
+
+function bitrateinfoDisplay() {
+    if (bitrateinfo.values.length == 3 && bitrateinfo.values[2].identifier == "result") {
+        for (b=0; b < bitrateinfo.values.length; b++) {
+            switch(bitrateinfo.values[b].identifier) {
+                case "value":
+                    if (bitrateinfo.values[b].quantity == 1) {
+                        document.getElementById("bitrateinfo_value" + b).innerHTML =
+                        bitrateinfo.values[b].quantity + " " + bitrateinfo.values[b].singular;
+                    } else {
+                        document.getElementById("bitrateinfo_value" + b).innerHTML =
+                        bitrateinfo.values[b].quantity + " " + bitrateinfo.values[b].canonical;
+                    }
+                    break;
+                case "keyword":
+                    document.getElementById("bitrateinfo_value" + b).innerHTML = bitrateinfo.values[b].canonical;
+                    break;
+                default:
+                    var sum = bitrateinfo.values[b].quantity, result = "";
+                    if ((bitrateinfo.values[b].datatype == "time") &&
+                        (bitrateinfo.values[b].hint != true) &&
+                        (bitrateinfo.values[b].magnitude == 1)) {
+                        // Display time as hh:mm:ss if no hint was given
+                        var hh = 0, mm = 0, ss = sum;
+
+                        while (ss > 3599) {
+                            ss = (ss - 3600);
+                            hh = hh + 1;
+                        }
+
+                        while (ss > 59) {
+                            ss = (ss - 60);
+                            mm = mm + 1;
+                        }
+
+                        hh = leadingZeros(hh, 2);
+                        mm = leadingZeros(mm, 2);
+                        ss = leadingZeros(ss, 2);
+                        result = hh + ":" + mm + ":" + ss;
+                    } else {
+                        // Proceed as normal
+                        if (!isInt(sum)) sum = sum.toFixed(2);
+                        if (sum == 1) {
+                            result = (sum + " " + bitrateinfo.values[b].singular);
+                        } else {
+                            result = (sum + " " + bitrateinfo.values[b].canonical);
+                        }
+                    }
+
+                    document.getElementById("bitrateinfo_value" + b).innerHTML = result;
+            }
+        }
+
+        classUtil("remove", document.getElementById("bitrateinfo_result"), "hidden");
+    }
+}
+
+function bitrateinfoExample() {
+    if (bitrateinfo.example >= bitrateinfo.examples.length)
+        bitrateinfo.example = 0;
+
+    document.getElementById("bitrateinfo_input").value = bitrateinfo.examples[bitrateinfo.example];
+    bitrateinfo.example++;
+    bitrateinfoAnalyse();
+}
+
+function bitrateinfoLexicon() {
+    if (!document.getElementById("legend")) {
+        var container = document.getElementById("bitrateinfo_container");
+        var table = document.createElement("table");
+        var thead = document.createElement("thead");
+        var tbody = document.createElement("tbody");
+
+        var keyCanonical = document.createElement("td");
+        var keyLexicon = document.createElement("td");
+
+        keyCanonical.innerHTML = "Unit of measurement";
+        keyLexicon.innerHTML = "Accepted terms (case insensitive)";
+
+        for (a=0; a < bitrateinfo.dataset.length; a++) {
+            var thisRow = document.createElement("tr");
+            var thisCanonical = document.createElement("td");
+            var thisLexicon = document.createElement("td");
+
+            thisCanonical.className = "canonical";
+            thisCanonical.innerHTML = bitrateinfo.dataset[a].canonical;
+            thisLexicon.className = "lexicon";
+            thisLexicon.innerHTML = bitrateinfo.dataset[a].lexicon;
+
+            thisRow.appendChild(thisCanonical);
+            thisRow.appendChild(thisLexicon);
+            tbody.appendChild(thisRow);
+        }
+
+        table.id = "legend";
+        thead.appendChild(keyCanonical);
+        thead.appendChild(keyLexicon);
+        table.appendChild(thead);
+        table.appendChild(tbody);
+        container.appendChild(table);
+    }
+}
+
+document.addEventListener("DOMContentLoaded", bitrateinfoInit);

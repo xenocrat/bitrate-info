@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>bitrate.info</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="author" content="Daniel Pimley">
+  <meta name="description" content="bitrate.info: a web app for calculating bit budgets">
+  <meta name="keywords" content="bitrate, calculator, budget">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width = 640">
+  <link rel="apple-touch-icon" sizes="72x72" href="images/bitrateinfo72.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="images/bitrateinfo114.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="images/bitrateinfo76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="images/bitrateinfo120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="images/bitrateinfo152.png">
+  <link type="text/css" href="css/bitrateinfo.css" rel="stylesheet">
+  <link type="image/ico" href="favicon.ico" rel="icon">
+  <script type="text/javascript" src="js/bitrateinfo.js"></script>
+</head>
+<body>
+  <h1>bitrate.info: a web app for calculating bit budgets</h1>
+  <noscript>
+      <p role="alert">This resource requires a JavaScript-enabled browser.</p>
+  </noscript>
+  <div id="bitrateinfo_container" role="application" class="hidden">
+    <form id="bitrateinfo_form" action="index.html">
+      <input type="text" id="bitrateinfo_input" value="" placeholder="Type your bit rate query in natural language." aria-label="Type your bitrate query in natural language">
+      <button type="submit" id="bitrateinfo_submit" aria-label="Calculate">Calculate</button>
+    </form>
+    <div id="helpers">
+      <a id="button_example" href="#" role="button">Show me an example!</a><a id="button_lexicon" href="#" role="button">What words can I use?</a>
+    </div>
+    <table id="bitrateinfo_result" role="status" aria-label="Result of calculation" class="hidden">
+      <thead>
+        <tr>
+          <td>Value 1</td>
+          <td>Value 2</td>
+          <td>Value 3</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td id="bitrateinfo_value0"></td>
+          <td id="bitrateinfo_value1"></td>
+          <td id="bitrateinfo_value2"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
