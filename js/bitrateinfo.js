@@ -1,5 +1,5 @@
 var bitrateinfo = {
-    query: multiDimensionalArray(2,0),
+    query: new Array(2),
     values: new Array(),
     dataset: new Array(),
     examples: new Array(),
@@ -317,20 +317,6 @@ bitrateinfo.examples[bitrateinfo.examples.length] = "float on cdr";
 bitrateinfo.examples[bitrateinfo.examples.length] = "Show me 30 minutes of hdcam in GB";
 bitrateinfo.examples[bitrateinfo.examples.length] = "mono for 2.5 hours";
 
-function multiDimensionalArray(iRows,iCols) {
-    var a = new Array(iRows), i, j;
-
-    for (i=0; i < iRows; i++) {
-       a[i] = new Array(iCols);
-
-       for (j=0; j < iCols; j++) {
-           a[i][j] = "";
-       }
-    }
-
-    return(a); 
-}
-
 // Utility to manipulate HTML classes.
 function classUtil(a,o,c1,c2) {
     switch (a) {
@@ -378,6 +364,7 @@ Array.prototype.clean = function(deleteValue) {
     return this;
 }
 
+// Return a random number scaled to the range.
 function longRandom(range) {
     return Math.round(Math.random() * range);
 }
@@ -390,11 +377,13 @@ String.prototype.splice = function(idx, rem, s) {
 function bitrateinfoInit() {
     // Pick a random start for the loop of examples.
     bitrateinfo.example = longRandom(bitrateinfo.examples.length - 1);
+
     // Add handlers.
     document.getElementById("bitrateinfo_form").addEventListener("submit", bitrateinfoUpdate);
     document.getElementById("bitrateinfo_input").addEventListener("change", bitrateinfoUpdate);
     document.getElementById("button_example").addEventListener("click", bitrateinfoExample);
     document.getElementById("button_lexicon").addEventListener("click", bitrateinfoLexicon);
+
     // Unhide the app.
     classUtil("remove", document.getElementById("bitrateinfo_container"), "hidden");
 }
