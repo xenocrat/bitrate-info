@@ -352,7 +352,12 @@ function leadingZeros(theNumber, max) {
     return numStr;
 }
 
-// Clean arrays of nulls.
+// Return a random number scaled to the range.
+function longRandom(range) {
+    return Math.round(Math.random() * range);
+}
+
+// Clean a value from an array.
 Array.prototype.clean = function(deleteValue) {
     for (var i = 0; i < this.length; i++) {
         if (this[i] == deleteValue) {         
@@ -363,16 +368,6 @@ Array.prototype.clean = function(deleteValue) {
 
     return this;
 }
-
-// Return a random number scaled to the range.
-function longRandom(range) {
-    return Math.round(Math.random() * range);
-}
-
-// Splice values into strings.
-String.prototype.splice = function(idx, rem, s) {
-    return (this.slice(0,idx) + s + this.slice(idx + Math.abs(rem)));
-};
 
 function bitrateinfoInit() {
     // Pick a random start for the loop of examples.
@@ -400,13 +395,17 @@ function bitrateinfoReset() {
 
 function bitrateinfoQuery() {
     var query = document.getElementById("bitrateinfo_input").value, found;
-    query = query.replace(/[^A-Za-z0-9.\/\s]/g, "");
 
-    do {
-        found = query.search(/[0-9+?][A-Za-z]/);
-        query = query.splice(found+1, 0, " ");
-    } while (found >= 0);
+    // Convert all white space to a single space.
+    query = query.replace(/\s+/g, " ");
 
+    // Strip irrelevant chars.
+    query = query.replace(/[^A-Za-z0-9.\/ ]/g, "");
+
+    // Separate units, e.g. "1GB" => "1 GB"
+    query = query.replace(/([0-9])([A-Za-z])/g, "$1 $2");
+
+    // Split the query into an array.
     bitrateinfo.query[0] = query.split(" ").clean("");
 
     for (z=0; z < bitrateinfo.query[0].length; z++) {
