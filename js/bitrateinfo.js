@@ -409,7 +409,7 @@ function bitrateinfoQuery() {
     // Split the query into an array.
     bitrateinfo.query[0] = query.split(" ").clean("");
 
-    for (z=0; z < bitrateinfo.query[0].length; z++) {
+    for (z = 0; z < bitrateinfo.query[0].length; z++) {
        // Zero the "parsed" flag.
        bitrateinfo.query[1][z] = false;
     }
@@ -424,7 +424,7 @@ function bitrateinfoAnalyse(){
     bitrateinfoReset();
     bitrateinfoQuery();
 
-    for (z=0; z < bitrateinfo.query[0].length; z++) {
+    for (z = 0; z < bitrateinfo.query[0].length; z++) {
        bitrateinfoParser(z);
     }
 
@@ -449,11 +449,11 @@ function bitrateinfoParser(z){
         if (isNaN(bitrateinfo.query[0][z])) {
             // Iterate over items in the dataset.
             heuristics: {
-                for (x=0; x < bitrateinfo.dataset.length; x++) {
+                for (x = 0; x < bitrateinfo.dataset.length; x++) {
                     var lexicon = bitrateinfo.dataset[x].lexicon.split(" ");
 
                     // Iterate over the lexicon for this item.
-                    for (y=0; y < lexicon.length; y++) {
+                    for (y = 0; y < lexicon.length; y++) {
                         if (lexicon[y].toLowerCase() == bitrateinfo.query[0][z].toLowerCase()) {
                             parsed.identifier = bitrateinfo.dataset[x].identifier;
                             parsed.datatype = bitrateinfo.dataset[x].datatype;
@@ -616,7 +616,7 @@ function bitrateinfoCalculate() {
         } else {
             // Search for a preferred display unit.
             preferred: {
-                for (a=0; a < bitrateinfo.dataset.length; a++) {
+                for (a = 0; a < bitrateinfo.dataset.length; a++) {
                     if ((bitrateinfo.dataset[a].datatype == computed.datatype) && bitrateinfo.dataset[a].preference == true) {
                         computed.quantity = (computed.quantity / bitrateinfo.dataset[a].magnitude);
                         computed.magnitude = bitrateinfo.dataset[a].magnitude;
@@ -634,7 +634,7 @@ function bitrateinfoCalculate() {
 
 function bitrateinfoDisplay() {
     if (bitrateinfo.values.length == 3 && bitrateinfo.values[2].identifier == "result") {
-        for (b=0; b < bitrateinfo.values.length; b++) {
+        for (b = 0; b < bitrateinfo.values.length; b++) {
             switch(bitrateinfo.values[b].identifier) {
                 case "value":
                     if (bitrateinfo.values[b].quantity == 1) {
@@ -713,7 +713,7 @@ function bitrateinfoLexicon() {
         keyCanonical.innerHTML = "Unit of measurement";
         keyLexicon.innerHTML = "Accepted terms (case insensitive)";
 
-        for (a=0; a < bitrateinfo.dataset.length; a++) {
+        for (a = 0; a < bitrateinfo.dataset.length; a++) {
             var thisRow = document.createElement("tr");
             var thisCanonical = document.createElement("td");
             var thisLexicon = document.createElement("td");
