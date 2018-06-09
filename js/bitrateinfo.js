@@ -394,7 +394,8 @@ function bitrateinfoReset() {
 }
 
 function bitrateinfoQuery() {
-    var query = document.getElementById("bitrateinfo_input").value, found;
+    var found;
+    var query = document.getElementById("bitrateinfo_input").value;
 
     // Convert all white space to a single space.
     query = query.replace(/\s+/g, " ");
@@ -499,8 +500,8 @@ function bitrateinfoParser(z){
             parsed.quantity = bitrateinfo.query[0][z].valueOf();
 
             // Read ahead in search of a unit for this number.
-            if (bitrateinfo.query[0].length > (z+1)) {
-                var readAhead = bitrateinfoParser(z+1);
+            if (bitrateinfo.query[0].length > (z + 1)) {
+                var readAhead = bitrateinfoParser(z + 1);
 
                 if (readAhead.identifier == "unit") {
 
