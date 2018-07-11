@@ -691,7 +691,9 @@ function bitrateinfoDisplay() {
     }
 }
 
-function bitrateinfoExample() {
+function bitrateinfoExample(e) {
+    e.preventDefault();
+
     if (bitrateinfo.example >= bitrateinfo.examples.length)
         bitrateinfo.example = 0;
 
@@ -700,7 +702,9 @@ function bitrateinfoExample() {
     bitrateinfoAnalyse();
 }
 
-function bitrateinfoLexicon() {
+function bitrateinfoLexicon(e) {
+    e.preventDefault();
+
     if (!document.getElementById("legend")) {
         var container = document.getElementById("bitrateinfo_container");
         var table = document.createElement("table");
