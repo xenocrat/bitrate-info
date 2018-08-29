@@ -130,7 +130,7 @@ table#bitrateinfo_result {
   text-align: center;
   background-color: transparent;
 }
-table#bitrateinfo_result>thead {
+table#bitrateinfo_result > thead {
   display: none;
 }
 table#bitrateinfo_result td {
