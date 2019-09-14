@@ -318,10 +318,10 @@ bitrateinfo.examples[bitrateinfo.examples.length] = "Show me 30 minutes of hdcam
 bitrateinfo.examples[bitrateinfo.examples.length] = "mono for 2.5 hours";
 
 // Utility to manipulate HTML classes.
-function classUtil(a,o,c1,c2) {
+function classUtil(a, o, c1, c2) {
     switch (a) {
         case "swap":
-            o.className =! classUtil("check", o, c1) ? o.className.replace(c2,c1) : o.className.replace(c1,c2) ;
+            o.className =! classUtil("check", o, c1) ? o.className.replace(c2, c1) : o.className.replace(c1, c2) ;
             break;
         case "add":
             if (!classUtil("check", o, c1))
@@ -338,7 +338,7 @@ function classUtil(a,o,c1,c2) {
 
 // Is the number an integer?
 function isInt(value) {
-    return !isNaN(parseInt(value,10)) && (parseFloat(value,10) == parseInt(value,10)); 
+    return !isNaN(parseInt(value, 10)) && (parseFloat(value, 10) == parseInt(value, 10)); 
 }
 
 // Add leading zeros to a number.
