@@ -8,50 +8,50 @@ var bitrateinfo = {
 
 // Time:
 
-bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+bitrateinfo.dataset.push({
     canonical: "seconds",
     singular: "second",
     lexicon: "sec secs second seconds",
     identifier: "unit",
     datatype: "time",
     magnitude: 1
-};
-bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+});
+bitrateinfo.dataset.push({
     canonical: "minutes",
     singular: "minute",
     lexicon: "min mins minute minutes",
     identifier: "unit",
     datatype: "time",
     magnitude: 60,
-};
-bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+});
+bitrateinfo.dataset.push({
     canonical: "hours",
     singular: "hour",
     lexicon: "hr hrs hour hours",
     identifier: "unit",
     datatype: "time",
     magnitude: 3600
-};
+});
 
 // Rate:
 
-bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+bitrateinfo.dataset.push({
     canonical: "bits per second",
     singular: "bit per second",
     lexicon: "bits bits/s b/s bps",
     identifier: "unit",
     datatype: "rate",
     magnitude: 1
-};
-bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+});
+bitrateinfo.dataset.push({
     canonical: "kilobits per second",
     singular: "kilobit per second",
     lexicon: "kilobits kilobits/s kb/s kbps",
     identifier: "unit",
     datatype: "rate",
     magnitude: 1000
-};
-bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+});
+bitrateinfo.dataset.push({
     canonical: "megabits per second",
     singular: "megabit per second",
     lexicon: "megabits megabits/s mb/s mbps",
@@ -59,51 +59,51 @@ bitrateinfo.dataset[bitrateinfo.dataset.length] = {
     datatype: "rate",
     magnitude: 1000000,
     preference: true
-};
-bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+});
+bitrateinfo.dataset.push({
     canonical: "gigabits per second",
     singular: "gigabit per second",
     lexicon: "gigabits gigabits/s gb/s gbps",
     identifier: "unit",
     datatype: "rate",
     magnitude: 1000000000
-};
-bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+});
+bitrateinfo.dataset.push({
     canonical: "megabytes per second",
     singular: "megabyte per second",
     lexicon: "m/s",
     identifier: "unit",
     datatype: "rate",
     magnitude: 8000000
-};
-bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+});
+bitrateinfo.dataset.push({
     canonical: "gigabytes per second",
     singular: "gigabyte per second",
     lexicon: "g/s",
     identifier: "unit",
     datatype: "rate",
     magnitude: 8000000000
-};
+});
 
 // Size:
 
-bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+bitrateinfo.dataset.push({
     canonical: "bytes",
     singular: "byte",
     lexicon: "byte bytes",
     identifier: "unit",
     datatype: "size",
     magnitude: 1
-};
-bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+});
+bitrateinfo.dataset.push({
     canonical: "kilobytes",
     singular: "kilobyte",
     lexicon: "kilobyte kilobytes KB KBs kilo kilos",
     identifier: "unit",
     datatype: "size",
     magnitude: 1000
-};
-bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+});
+bitrateinfo.dataset.push({
     canonical: "megabytes",
     singular: "megabyte",
     lexicon: "megabyte megabytes MB MBs meg megs",
@@ -111,211 +111,220 @@ bitrateinfo.dataset[bitrateinfo.dataset.length] = {
     datatype: "size",
     magnitude: 1000000,
     preference: true
-};
-bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+});
+bitrateinfo.dataset.push({
     canonical: "gigabytes",
     singular: "gigabyte",
     lexicon: "gigabyte gigabytes GB GBs gig gigs",
     identifier: "unit",
     datatype: "size",
     magnitude: 1000000000
-};
-bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+});
+bitrateinfo.dataset.push({
     canonical: "terabytes",
     singular: "terabyte",
     lexicon: "terabyte terabytes TB TBs",
     identifier: "unit",
     datatype: "size",
     magnitude: 1000000000000
-};
-bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+});
+bitrateinfo.dataset.push({
     canonical: "kibibytes",
     singular: "kibibyte",
     lexicon: "kibibyte kibibytes KiB KiBs",
     identifier: "unit",
     datatype: "size",
     magnitude: 1024
-};
-bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+});
+bitrateinfo.dataset.push({
     canonical: "mebibytes",
     singular: "mebibyte",
     lexicon: "mebibyte mebibytes MiB MiBs",
     identifier: "unit",
     datatype: "size",
     magnitude: 1048576
-};
-bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+});
+bitrateinfo.dataset.push({
     canonical: "gibibytes",
     singular: "gibibyte",
     lexicon: "gibibyte gibibytes GiB GiBs",
     identifier: "unit",
     datatype: "size",
     magnitude: 1073741824
-};
-bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+});
+bitrateinfo.dataset.push({
     canonical: "tebibytes",
     singular: "tebibyte",
     lexicon: "tebibyte tebibytes TiB TiBs",
     identifier: "unit",
     datatype: "size",
     magnitude: 1099511627776
-};
+});
 
 // Keywords:
 
-bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+bitrateinfo.dataset.push({
     canonical: "CD-R 74 minutes (Audio)",
     lexicon: "cd",
     identifier: "keyword",
     datatype: "size",
     quantity: 783216000,
     magnitude: 1
-};
-bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+});
+bitrateinfo.dataset.push({
     canonical: "CD-R 80 minutes (Mode 1)",
     lexicon: "cdr cdrom",
     identifier: "keyword",
     datatype: "size",
     quantity: 737280000,
     magnitude: 1
-};
-bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+});
+bitrateinfo.dataset.push({
     canonical: "DVD±R SL",
     lexicon: "dvd dvdr dvdsl dvd5",
     identifier: "keyword",
     datatype: "size",
     quantity: 4707319808,
     magnitude: 1
-};
-bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+});
+bitrateinfo.dataset.push({
     canonical: "DVD±R DL",
     lexicon: "dvddl dvd9",
     identifier: "keyword",
     datatype: "size",
     quantity: 8543666176,
     magnitude: 1
-};
-bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+});
+bitrateinfo.dataset.push({
     canonical: "BD-R 25",
     lexicon: "bdr bdr25 bluray",
     identifier: "keyword",
     datatype: "size",
     quantity: 25025314816,
     magnitude: 1
-};
-bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+});
+bitrateinfo.dataset.push({
     canonical: "BD-R 50",
     lexicon: "bdr50",
     identifier: "keyword",
     datatype: "size",
     quantity: 50050629632,
     magnitude: 1
-};
-bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+});
+bitrateinfo.dataset.push({
     canonical: "Sony XDCAM EX",
     lexicon: "xdcamex",
     identifier: "keyword",
     datatype: "rate",
     quantity: 35000000,
     magnitude: 1
-};
-bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+});
+bitrateinfo.dataset.push({
     canonical: "Sony HDCAM",
     lexicon: "hdcam",
     identifier: "keyword",
     datatype: "rate",
     quantity: 135000000,
     magnitude: 1
-};
-bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+});
+bitrateinfo.dataset.push({
     canonical: "Sony HDCAM SR",
     lexicon: "hdcamsr",
     identifier: "keyword",
     datatype: "rate",
     quantity: 440000000,
     magnitude: 1
-};
-bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+});
+bitrateinfo.dataset.push({
     canonical: "ProRes 422",
     lexicon: "prores prores422",
     identifier: "keyword",
     datatype: "rate",
     quantity: 122000000,
     magnitude: 1
-};
-bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+});
+bitrateinfo.dataset.push({
     canonical: "Avid DNxHD 145",
     lexicon: "dnxhd dnxhd145",
     identifier: "keyword",
     datatype: "rate",
     quantity: 145000000,
     magnitude: 1
-};
-bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+});
+bitrateinfo.dataset.push({
     canonical: "Avid DNxHD 220",
     lexicon: "dnxhd220",
     identifier: "keyword",
     datatype: "rate",
     quantity: 220000000,
     magnitude: 1
-};
-bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+});
+bitrateinfo.dataset.push({
     canonical: "Compact Disc Digital Audio",
     lexicon: "cdda audio",
     identifier: "keyword",
     datatype: "rate",
     quantity: 1411200,
     magnitude: 1
-};
-bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+});
+bitrateinfo.dataset.push({
     canonical: "PCM Stereo 16-Bit",
     lexicon: "pcm stereo",
     identifier: "keyword",
     datatype: "rate",
     quantity: 1536000,
     magnitude: 1
-};
-bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+});
+bitrateinfo.dataset.push({
     canonical: "PCM Mono 16-Bit",
     lexicon: "mono",
     identifier: "keyword",
     datatype: "rate",
     quantity: 768000,
     magnitude: 1
-};
-bitrateinfo.dataset[bitrateinfo.dataset.length] = {
+});
+bitrateinfo.dataset.push({
     canonical: "PCM Stereo 32-Bit",
     lexicon: "float",
     identifier: "keyword",
     datatype: "rate",
     quantity: 768000,
     magnitude: 1
-};
+});
+bitrateinfo.dataset.push({
+    canonical: "MP3 128 Kbps",
+    lexicon: "mp3",
+    identifier: "keyword",
+    datatype: "rate",
+    quantity: 128000,
+    magnitude: 1
+});
 
-bitrateinfo.examples[bitrateinfo.examples.length] = "5 minutes at 800 Kbps measured in mebibytes";
-bitrateinfo.examples[bitrateinfo.examples.length] = "1 hour of xdcam-ex in GBs";
-bitrateinfo.examples[bitrateinfo.examples.length] = "60 minutes on blu-ray";
-bitrateinfo.examples[bitrateinfo.examples.length] = "How much audio fits on a cd?";
-bitrateinfo.examples[bitrateinfo.examples.length] = "40 gigs of dnxhd";
-bitrateinfo.examples[bitrateinfo.examples.length] = "10 secs @ 50 mbps";
-bitrateinfo.examples[bitrateinfo.examples.length] = "proRes422 for 3 hrs in gigabytes";
-bitrateinfo.examples[bitrateinfo.examples.length] = "25 mbps for 63 minutes";
-bitrateinfo.examples[bitrateinfo.examples.length] = "Space required for 25 mins at 8 Mb/s";
-bitrateinfo.examples[bitrateinfo.examples.length] = "dvd9 at 8 mbps in hours";
-bitrateinfo.examples[bitrateinfo.examples.length] = "stereo for 8 hours";
-bitrateinfo.examples[bitrateinfo.examples.length] = "hdcam-sr on bdr-50 hrs";
-bitrateinfo.examples[bitrateinfo.examples.length] = "What's the data rate of a 25gb file with 35 mins duration?";
-bitrateinfo.examples[bitrateinfo.examples.length] = "1.2 Gbps for 60 secs";
-bitrateinfo.examples[bitrateinfo.examples.length] = "1 Mbps on cdr";
-bitrateinfo.examples[bitrateinfo.examples.length] = "cdda on cd";
-bitrateinfo.examples[bitrateinfo.examples.length] = "2 hours on blu-ray";
-bitrateinfo.examples[bitrateinfo.examples.length] = "What bitrate for a 25 min bluray?";
-bitrateinfo.examples[bitrateinfo.examples.length] = "90 mins at 50 mb/s in GiB";
-bitrateinfo.examples[bitrateinfo.examples.length] = "120 minutes on DVD-DL in kbps";
-bitrateinfo.examples[bitrateinfo.examples.length] = "dnxhd220 for 180 mins in GiB";
-bitrateinfo.examples[bitrateinfo.examples.length] = "float on cdr";
-bitrateinfo.examples[bitrateinfo.examples.length] = "Show me 30 minutes of hdcam in GB";
-bitrateinfo.examples[bitrateinfo.examples.length] = "mono for 2.5 hours";
+bitrateinfo.examples.push("5 minutes at 800 Kbps measured in mebibytes");
+bitrateinfo.examples.push("1 hour of xdcam-ex in GBs");
+bitrateinfo.examples.push("60 minutes on blu-ray");
+bitrateinfo.examples.push("How much audio fits on a cd?");
+bitrateinfo.examples.push("40 gigs of dnxhd");
+bitrateinfo.examples.push("10 secs @ 50 mbps");
+bitrateinfo.examples.push("proRes422 for 3 hrs in gigabytes");
+bitrateinfo.examples.push("25 mbps for 63 minutes");
+bitrateinfo.examples.push("Space required for 25 mins at 8 Mb/s");
+bitrateinfo.examples.push("dvd9 at 8 mbps in hours");
+bitrateinfo.examples.push("stereo for 8 hours");
+bitrateinfo.examples.push("hdcam-sr on bdr-50 hrs");
+bitrateinfo.examples.push("What's the data rate of a 25gb file with 35 mins duration?");
+bitrateinfo.examples.push("1.2 Gbps for 60 secs");
+bitrateinfo.examples.push("1 Mbps on cdr");
+bitrateinfo.examples.push("cdda on cd");
+bitrateinfo.examples.push("2 hours on blu-ray");
+bitrateinfo.examples.push("What bitrate for a 25 min bluray?");
+bitrateinfo.examples.push("90 mins at 50 mb/s in GiB");
+bitrateinfo.examples.push("120 minutes on DVD-DL in kbps");
+bitrateinfo.examples.push("dnxhd220 for 180 mins in GiB");
+bitrateinfo.examples.push("float on cdr");
+bitrateinfo.examples.push("Show me 30 minutes of hdcam in GB");
+bitrateinfo.examples.push("mono for 2.5 hours");
+bitrateinfo.examples.push("2 hours of mp3");
 
 // Utility to manipulate HTML classes.
 function classUtil(a, o, c1, c2) {
@@ -474,7 +483,8 @@ function bitrateinfoParser(z){
                                     canonical: bitrateinfo.dataset[x].canonical
                                 };
 
-                            } else if (bitrateinfo.values.length == 2 && bitrateinfo.dataset[x].identifier == "unit") {
+                            } else if (bitrateinfo.values.length == 2 &&
+                                       bitrateinfo.dataset[x].identifier == "unit") {
 
                                 // Found a hint!
                                 bitrateinfo.values[bitrateinfo.values.length] = {
@@ -617,7 +627,9 @@ function bitrateinfoCalculate() {
             // Search for a preferred display unit.
             preferred: {
                 for (a = 0; a < bitrateinfo.dataset.length; a++) {
-                    if ((bitrateinfo.dataset[a].datatype == computed.datatype) && bitrateinfo.dataset[a].preference == true) {
+                    if (bitrateinfo.dataset[a].datatype == computed.datatype &&
+                        bitrateinfo.dataset[a].preference == true) {
+
                         computed.quantity = (computed.quantity / bitrateinfo.dataset[a].magnitude);
                         computed.magnitude = bitrateinfo.dataset[a].magnitude;
                         computed.canonical = bitrateinfo.dataset[a].canonical;
