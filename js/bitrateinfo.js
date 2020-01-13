@@ -475,26 +475,26 @@ function bitrateinfoParser(z){
                             if (bitrateinfo.dataset[x].identifier == "keyword") {
 
                                 // Found a keyword!
-                                bitrateinfo.values[bitrateinfo.values.length] = {
+                                bitrateinfo.values.push({
                                     identifier: "keyword",
                                     datatype: bitrateinfo.dataset[x].datatype,
                                     quantity: bitrateinfo.dataset[x].quantity,
                                     magnitude: bitrateinfo.dataset[x].magnitude,
                                     canonical: bitrateinfo.dataset[x].canonical
-                                };
+                                });
 
                             } else if (bitrateinfo.values.length == 2 &&
                                        bitrateinfo.dataset[x].identifier == "unit") {
 
                                 // Found a hint!
-                                bitrateinfo.values[bitrateinfo.values.length] = {
+                                bitrateinfo.values.push({
                                     identifier: bitrateinfo.dataset[x].identifier,
                                     datatype: bitrateinfo.dataset[x].datatype,
                                     quantity: bitrateinfo.dataset[x].quantity,
                                     magnitude: bitrateinfo.dataset[x].magnitude,
                                     canonical: bitrateinfo.dataset[x].canonical,
                                     singular: bitrateinfo.dataset[x].singular
-                                };
+                                });
 
                             }
 
@@ -516,14 +516,14 @@ function bitrateinfoParser(z){
                 if (readAhead.identifier == "unit") {
 
                     // Found a value!
-                    bitrateinfo.values[bitrateinfo.values.length] = {
+                    bitrateinfo.values.push({
                         identifier: "value",
                         datatype: readAhead.datatype,
                         quantity: bitrateinfo.query[0][z].valueOf(),
                         magnitude: readAhead.magnitude,
                         canonical: readAhead.canonical,
                         singular: readAhead.singular
-                    };
+                    });
                 }
             }
         }
