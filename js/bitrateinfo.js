@@ -268,7 +268,7 @@ bitrateinfo.dataset.push({
     magnitude: 1
 });
 bitrateinfo.dataset.push({
-    canonical: "PCM Stereo 16-Bit",
+    canonical: "PCM Stereo 48 KHz 16-Bit",
     lexicon: "pcm stereo",
     identifier: "keyword",
     datatype: "rate",
@@ -276,7 +276,7 @@ bitrateinfo.dataset.push({
     magnitude: 1
 });
 bitrateinfo.dataset.push({
-    canonical: "PCM Mono 16-Bit",
+    canonical: "PCM Mono 48 KHz 16-Bit",
     lexicon: "mono",
     identifier: "keyword",
     datatype: "rate",
@@ -284,7 +284,7 @@ bitrateinfo.dataset.push({
     magnitude: 1
 });
 bitrateinfo.dataset.push({
-    canonical: "PCM Stereo 32-Bit",
+    canonical: "PCM Stereo 48 KHz 32-Bit",
     lexicon: "float",
     identifier: "keyword",
     datatype: "rate",
