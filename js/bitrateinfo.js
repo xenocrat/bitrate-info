@@ -288,7 +288,7 @@ bitrateinfo.dataset.push({
     lexicon: "float",
     identifier: "keyword",
     datatype: "rate",
-    quantity: 768000,
+    quantity: 3072000,
     magnitude: 1
 });
 bitrateinfo.dataset.push({
