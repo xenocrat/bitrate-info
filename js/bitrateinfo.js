@@ -202,7 +202,7 @@ bitrateinfo.dataset.push({
     lexicon: "bdr25",
     identifier: "keyword",
     datatype: "size",
-    quantity: 25025314816,
+    quantity: 25000000000,
     magnitude: 1
 });
 bitrateinfo.dataset.push({
@@ -210,7 +210,7 @@ bitrateinfo.dataset.push({
     lexicon: "bdr50",
     identifier: "keyword",
     datatype: "size",
-    quantity: 50050629632,
+    quantity: 50000000000,
     magnitude: 1
 });
 bitrateinfo.dataset.push({
