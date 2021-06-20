@@ -316,7 +316,7 @@ bitrateinfo.examples.push("60 minutes on blu-ray");
 bitrateinfo.examples.push("How much audio fits on a cd?");
 bitrateinfo.examples.push("40 gigs of dnxhd");
 bitrateinfo.examples.push("10 secs @ 50 mbps");
-bitrateinfo.examples.push("proRes422 for 3 hrs in gigabytes");
+bitrateinfo.examples.push("2 hours on bdr100");
 bitrateinfo.examples.push("25 mbps for 63 minutes");
 bitrateinfo.examples.push("Space required for 25 mins at 8 Mb/s");
 bitrateinfo.examples.push("dvd9 at 8 mbps in hours");
