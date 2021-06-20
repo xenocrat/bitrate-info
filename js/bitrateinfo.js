@@ -254,14 +254,6 @@ bitrateinfo.dataset.push({
     magnitude: 1
 });
 bitrateinfo.dataset.push({
-    canonical: "ProRes 422",
-    lexicon: "prores prores422",
-    identifier: "keyword",
-    datatype: "rate",
-    quantity: 122000000,
-    magnitude: 1
-});
-bitrateinfo.dataset.push({
     canonical: "Avid DNxHD 145",
     lexicon: "dnxhd dnxhd145",
     identifier: "keyword",
