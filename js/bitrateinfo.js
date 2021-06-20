@@ -198,19 +198,35 @@ bitrateinfo.dataset.push({
     magnitude: 1
 });
 bitrateinfo.dataset.push({
-    canonical: "BD-R 25",
-    lexicon: "bdr bdr25 bluray",
+    canonical: "BD-R 25 GB",
+    lexicon: "bdr25",
     identifier: "keyword",
     datatype: "size",
     quantity: 25025314816,
     magnitude: 1
 });
 bitrateinfo.dataset.push({
-    canonical: "BD-R 50",
+    canonical: "BD-R 50 GB",
     lexicon: "bdr50",
     identifier: "keyword",
     datatype: "size",
     quantity: 50050629632,
+    magnitude: 1
+});
+bitrateinfo.dataset.push({
+    canonical: "BD-ROM 66 GB",
+    lexicon: "bdr66",
+    identifier: "keyword",
+    datatype: "size",
+    quantity: 66800000000,
+    magnitude: 1
+});
+bitrateinfo.dataset.push({
+    canonical: "BD-ROM 100 GB",
+    lexicon: "bdr100",
+    identifier: "keyword",
+    datatype: "size",
+    quantity: 100200000000,
     magnitude: 1
 });
 bitrateinfo.dataset.push({
