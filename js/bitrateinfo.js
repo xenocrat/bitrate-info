@@ -312,7 +312,7 @@ bitrateinfo.dataset.push({
 
 bitrateinfo.examples.push("5 minutes at 800 Kbps measured in mebibytes");
 bitrateinfo.examples.push("1 hour of xdcam-ex in GBs");
-bitrateinfo.examples.push("60 minutes on blu-ray");
+bitrateinfo.examples.push("60 minutes on bdr25");
 bitrateinfo.examples.push("How much audio fits on a cd?");
 bitrateinfo.examples.push("40 gigs of dnxhd");
 bitrateinfo.examples.push("10 secs @ 50 mbps");
@@ -326,8 +326,8 @@ bitrateinfo.examples.push("What's the data rate of a 25gb file with 35 mins dura
 bitrateinfo.examples.push("1.2 Gbps for 60 secs");
 bitrateinfo.examples.push("1 Mbps on cdr");
 bitrateinfo.examples.push("cdda on cd");
-bitrateinfo.examples.push("2 hours on blu-ray");
-bitrateinfo.examples.push("What bitrate for a 25 min bluray?");
+bitrateinfo.examples.push("2 hours on bdr50");
+bitrateinfo.examples.push("What bitrate for a 25 min bdr66?");
 bitrateinfo.examples.push("90 mins at 50 mb/s in GiB");
 bitrateinfo.examples.push("120 minutes on DVD-DL in kbps");
 bitrateinfo.examples.push("dnxhd220 for 180 mins in GiB");
