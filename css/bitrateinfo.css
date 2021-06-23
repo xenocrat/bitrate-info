@@ -108,9 +108,8 @@ table#legend {
 }
 table#legend thead td {
   color: #ffffff;
-  font-size: 0.8em;
-  border: 1px solid #909393;
-  background-color: #909393;
+  border: 1px solid #707272;
+  background-color: #707272;
   padding: 4px 8px;
 }
 table#legend tbody td {
@@ -135,7 +134,7 @@ table#bitrateinfo_result > thead {
 }
 table#bitrateinfo_result td {
   padding: 4px 8px;
-  background-color: #909393;
+  background-color: #707272;
 }
 td#bitrateinfo_value0 {
   border: none;
