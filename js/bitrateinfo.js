@@ -322,7 +322,7 @@ bitrateinfo.examples.push("Space required for 25 mins at 8 Mb/s");
 bitrateinfo.examples.push("dvd9 at 8 mbps in hours");
 bitrateinfo.examples.push("stereo for 8 hours");
 bitrateinfo.examples.push("hdcam-sr on bdr-50 hrs");
-bitrateinfo.examples.push("What's the data rate of a 25gb file with 35 mins duration?");
+bitrateinfo.examples.push("Data rate in Mbps, 35 minutes, 25gb file?");
 bitrateinfo.examples.push("1.2 Gbps for 60 secs");
 bitrateinfo.examples.push("1 Mbps on cdr");
 bitrateinfo.examples.push("cdda on cd");
