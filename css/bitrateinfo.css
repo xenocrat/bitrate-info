@@ -3,15 +3,12 @@
   background-color: #4a4747;
 }
 body {
-  font-family: "system-ui", "-apple-system", sans-serif;
+  font-family: sans-serif;
   font-weight: normal;
   font-size: 16px;
   color: #2f2f2f;
   background-color: #e8e8e8;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 48px;
-  margin-bottom: auto;
+  margin: 2rem auto;
   width: 600px;
   padding-left: 16px;
   padding-right: 16px;
@@ -20,7 +17,7 @@ h1 {
   font-size: 0.8em;
   font-weight: normal;
   text-align: center;
-  margin: 0em 0em 1rem 0em;
+  margin: 1rem 0rem;
 }
 p {
   text-align: center;
@@ -33,13 +30,10 @@ div#bitrateinfo_container {
 div#helpers {
   font-size: 0.8em;
   text-align: center;
-  margin: 1rem 0em;
+  margin: 1rem 0rem;
 }
-div#helpers a {
-  margin-right: 1.25em;
-}
-div#helpers a:last-child { 
-  margin-right: 0em;
+div#helpers a:not(:last-child) {
+  margin-right: 2rem;
 }
 form {
   display: block;
@@ -100,7 +94,7 @@ button#bitrateinfo_submit:active {
 }
 table#legend {
   width: 100%;
-  margin: 2em 0em 1em 0em;
+  margin: 2rem 0rem;
   border: none;
   border-collapse: collapse;
   border-spacing: 2px;
@@ -122,8 +116,8 @@ td.canonical:first-letter {
 }
 table#bitrateinfo_result {
   width: 100%;
-  min-height: 1em;
-  margin: 1em 0em;
+  min-height: 1rem;
+  margin: 1rem 0rem;
   border-collapse: collapse;
   color: #ffffff;
   text-align: center;
@@ -151,9 +145,6 @@ td#bitrateinfo_value2 {
   border-right: 1em;
   border-top-right-radius: 1em;
   border-bottom-right-radius: 1em;
-}
-a {
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 a:link,
 a:visited {
