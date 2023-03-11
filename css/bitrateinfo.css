@@ -9,9 +9,10 @@ body {
   color: #2f2f2f;
   background-color: #e8e8e8;
   margin: 2rem auto;
-  width: 600px;
-  padding-left: 16px;
-  padding-right: 16px;
+  box-sizing: border-box;
+  width: 480px;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 h1 {
   font-size: 0.8em;
@@ -21,8 +22,7 @@ h1 {
 }
 p {
   text-align: center;
-  line-height: 1.5;
-  margin: 0em 0em 1em 0em;
+  margin: 1rem 0rem;
 }
 div#bitrateinfo_container {
   width: 100%;
@@ -48,7 +48,7 @@ input#bitrateinfo_input {
   box-sizing: border-box;
   display: block;
   float: left;
-  width: 568px;
+  width: calc(100% - 32px);
   height: 32px;
   margin: 0em;
   padding: 4px 8px;
@@ -60,7 +60,6 @@ input#bitrateinfo_input {
   border: 1px solid #c6ccc8;
   border-right: none;
   border-radius: 0em;
-  background-image: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 100%);
 }
 input#bitrateinfo_input:focus {
   outline: none;
@@ -97,16 +96,13 @@ table#legend {
   margin: 2rem 0rem;
   border: none;
   border-collapse: collapse;
-  border-spacing: 2px;
   background-color: transparent;
+  font-size: 0.8em;
 }
-table#legend thead td {
-  color: #ffffff;
-  border: 1px solid #707272;
-  background-color: #707272;
-  padding: 4px 8px;
+table#legend thead {
+  font-weight: bold;
 }
-table#legend tbody td {
+table#legend td {
   border: 1px solid #c6ccc8;
   background-color: #ffffff;
   padding: 4px 8px;
@@ -127,24 +123,11 @@ table#bitrateinfo_result > thead {
   display: none;
 }
 table#bitrateinfo_result td {
+  display: block;
+  margin: 1rem 0rem;
   padding: 4px 8px;
+  border-radius: 1em;
   background-color: #707272;
-}
-td#bitrateinfo_value0 {
-  border: none;
-  border-left: 1em;
-  border-top-left-radius: 1em;
-  border-bottom-left-radius: 1em;
-}
-td#bitrateinfo_value1 {
-  border-left: 1px solid #e6e8e8;
-  border-right: 1px solid #e6e8e8;
-}
-td#bitrateinfo_value2 {
-  border: none;
-  border-right: 1em;
-  border-top-right-radius: 1em;
-  border-bottom-right-radius: 1em;
 }
 a:link,
 a:visited {
