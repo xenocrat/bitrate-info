@@ -16,7 +16,7 @@ body {
 }
 h1 {
   font-size: 0.8em;
-  font-weight: normal;
+  font-weight: bold;
   text-align: center;
   margin: 1rem 0rem;
 }
@@ -57,16 +57,13 @@ input#bitrateinfo_input {
   font-size: inherit;
   color: #2f2f2f;
   background-color: #ffffff;
-  border: 1px solid #c6ccc8;
+  border: 1px solid #951414;
   border-right: none;
   border-radius: 0em;
 }
 input#bitrateinfo_input:focus {
   outline: none;
-  border-color: #2f2f2f;
-}
-button::-moz-focus-inner {
-  border: none;
+  border-color: #050404;
 }
 button#bitrateinfo_submit {
   box-sizing: border-box;
@@ -89,7 +86,7 @@ button#bitrateinfo_submit {
 button#bitrateinfo_submit:focus,
 button#bitrateinfo_submit:active {
   outline: none;
-  border: 1px solid #050404;
+  border-color: #050404;
 }
 table#legend {
   width: 100%;

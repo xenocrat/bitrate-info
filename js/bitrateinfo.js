@@ -727,40 +727,45 @@ function bitrateinfoExample(e) {
 function bitrateinfoLexicon(e) {
     e.preventDefault();
 
-    if (!document.getElementById("legend")) {
-        var container = document.getElementById("bitrateinfo_container");
-        var table = document.createElement("table");
-        var thead = document.createElement("thead");
-        var tbody = document.createElement("tbody");
+    var legend = document.getElementById("legend");
 
-        var keyCanonical = document.createElement("td");
-        var keyLexicon = document.createElement("td");
-
-        keyCanonical.innerHTML = "Unit of measurement";
-        keyLexicon.innerHTML = "Accepted terms (case insensitive)";
-
-        for (var a = 0; a < bitrateinfo.dataset.length; a++) {
-            var thisRow = document.createElement("tr");
-            var thisCanonical = document.createElement("td");
-            var thisLexicon = document.createElement("td");
-
-            thisCanonical.className = "canonical";
-            thisCanonical.innerHTML = bitrateinfo.dataset[a].canonical;
-            thisLexicon.className = "lexicon";
-            thisLexicon.innerHTML = bitrateinfo.dataset[a].lexicon;
-
-            thisRow.appendChild(thisCanonical);
-            thisRow.appendChild(thisLexicon);
-            tbody.appendChild(thisRow);
-        }
-
-        table.id = "legend";
-        thead.appendChild(keyCanonical);
-        thead.appendChild(keyLexicon);
-        table.appendChild(thead);
-        table.appendChild(tbody);
-        container.appendChild(table);
+    if (!!legend) {
+        legend.remove();
+        return;
     }
+
+    var container = document.getElementById("bitrateinfo_container");
+    var table = document.createElement("table");
+    var thead = document.createElement("thead");
+    var tbody = document.createElement("tbody");
+
+    var keyCanonical = document.createElement("td");
+    var keyLexicon = document.createElement("td");
+
+    keyCanonical.innerHTML = "Unit of measurement";
+    keyLexicon.innerHTML = "Accepted terms (case insensitive)";
+
+    for (var a = 0; a < bitrateinfo.dataset.length; a++) {
+        var thisRow = document.createElement("tr");
+        var thisCanonical = document.createElement("td");
+        var thisLexicon = document.createElement("td");
+
+        thisCanonical.className = "canonical";
+        thisCanonical.innerHTML = bitrateinfo.dataset[a].canonical;
+        thisLexicon.className = "lexicon";
+        thisLexicon.innerHTML = bitrateinfo.dataset[a].lexicon;
+
+        thisRow.appendChild(thisCanonical);
+        thisRow.appendChild(thisLexicon);
+        tbody.appendChild(thisRow);
+    }
+
+    table.id = "legend";
+    thead.appendChild(keyCanonical);
+    thead.appendChild(keyLexicon);
+    table.appendChild(thead);
+    table.appendChild(tbody);
+    container.appendChild(table);
 }
 
 document.addEventListener("DOMContentLoaded", bitrateinfoInit);
