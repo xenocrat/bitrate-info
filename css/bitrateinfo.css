@@ -8,9 +8,9 @@ body {
   font-size: 16px;
   color: #2f2f2f;
   background-color: #e8e8e8;
-  margin: 2rem auto;
+  margin: 1rem auto;
   box-sizing: border-box;
-  width: 480px;
+  max-width: 480px;
   padding-left: 1rem;
   padding-right: 1rem;
 }
@@ -30,10 +30,11 @@ div#bitrateinfo_container {
 div#helpers {
   font-size: 0.8em;
   text-align: center;
-  margin: 1rem 0rem;
+  margin: 1rem 0rem 0rem 0rem;
 }
-div#helpers a:not(:last-child) {
-  margin-right: 2rem;
+div#helpers a {
+  display: inline-block;
+  margin: 0rem 1rem 1rem 1rem;
 }
 form {
   display: block;
@@ -90,7 +91,7 @@ button#bitrateinfo_submit:active {
 }
 table#legend {
   width: 100%;
-  margin: 2rem 0rem;
+  margin: 0rem;
   border: none;
   border-collapse: collapse;
   background-color: transparent;
@@ -110,7 +111,7 @@ td.canonical:first-letter {
 table#bitrateinfo_result {
   width: 100%;
   min-height: 1rem;
-  margin: 1rem 0rem;
+  margin: 1rem 0rem 0rem 0rem;
   border-collapse: collapse;
   color: #ffffff;
   text-align: center;
@@ -121,10 +122,16 @@ table#bitrateinfo_result > thead {
 }
 table#bitrateinfo_result td {
   display: block;
-  margin: 1rem 0rem;
+  margin: 0rem;
   padding: 4px 8px;
   border-radius: 1em;
   background-color: #707272;
+}
+table#bitrateinfo_result td:first-child {
+  margin-bottom: 1rem;
+}
+table#bitrateinfo_result td:last-child {
+  margin-top: 1rem;
 }
 a:link,
 a:visited {
