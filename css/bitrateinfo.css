@@ -30,7 +30,7 @@ div#bitrateinfo_container {
 div#helpers {
   font-size: 0.8em;
   text-align: center;
-  margin: 1rem 0rem 0rem 0rem;
+  margin: 0rem;
 }
 div#helpers a {
   display: inline-block;
@@ -38,8 +38,8 @@ div#helpers a {
 }
 form {
   display: block;
-  margin: 0em;
-  padding: 0em;
+  margin: 0rem 0rem 1rem 0rem;
+  padding: 0rem;
   border: none;
 }
 input:placeholder {
@@ -91,7 +91,7 @@ button#bitrateinfo_submit:active {
 }
 table#legend {
   width: 100%;
-  margin: 0rem;
+  margin: 0rem 0rem 1rem 0rem;
   border: none;
   border-collapse: collapse;
   background-color: transparent;
@@ -111,7 +111,7 @@ td.canonical:first-letter {
 table#bitrateinfo_result {
   width: 100%;
   min-height: 1rem;
-  margin: 1rem 0rem 0rem 0rem;
+  margin: 0rem 0rem 1rem 0rem;
   border-collapse: collapse;
   color: #ffffff;
   text-align: center;
