@@ -301,7 +301,7 @@ var bitrateinfo = {
     }
   ],
   examples: [
-    "5 minutes at 800 Kbps measured in mebibytes",
+    "5 mins at 800 Kbps in mebibytes",
     "1 hour of xdcam-ex in GBs",
     "60 minutes on bdr25",
     "How much audio fits on a cd?",
@@ -309,11 +309,11 @@ var bitrateinfo = {
     "10 secs @ 50 mbps",
     "2 hours on bdr100",
     "25 mbps for 63 minutes",
-    "Space required for 25 mins at 8 Mb/s",
+    "Size of 25 mins at 8 Mb/s",
     "dvd9 at 8 mbps in hours",
     "stereo for 8 hours",
     "hdcam-sr on bdr-50 hrs",
-    "Data rate in Mbps, 35 minutes, 25gb file?",
+    "Mbps, 35 minutes, 25gb file?",
     "1.2 Gbps for 60 secs",
     "1 Mbps on cdr",
     "cdda on cd",
@@ -845,7 +845,7 @@ var bitrateinfo = {
 
       // Pick a random start for the loop of examples.
       var n = Math.round(
-        Math.random() * bitrateinfo.examples.length - 1
+        Math.random() * (bitrateinfo.examples.length - 1)
       );
 
       bitrateinfo.ui.input.value = bitrateinfo.examples[n];
