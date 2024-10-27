@@ -1,16 +1,27 @@
+
+:root {
+    color-scheme: light dark;
+    --bitrate-background: #ffffff;
+    --bitrate-foreground: #000000;
+    --bitrate-link: #0000ff;
+    --bitrate-highlight: #ff7f00;
+}
 *::selection {
-  color: #ffffff;
-  background-color: #4a4747;
+  background-color: var(--bitrate-highlight);
+}
+html {
+    font-size: 20px;
 }
 body {
   font-family: sans-serif;
   font-weight: normal;
-  font-size: 16px;
-  color: #2f2f2f;
-  background-color: #e8e8e8;
-  margin: 1rem auto;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--bitrate-foreground);
+  background-color: var(--bitrate-background);
+  margin: 1rem auto 0rem auto;
   box-sizing: border-box;
-  max-width: 480px;
+  max-width: 640px;
   padding-left: 1rem;
   padding-right: 1rem;
 }
@@ -28,66 +39,79 @@ div#bitrateinfo_container {
   width: 100%;
 }
 div#helpers {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
   font-size: 0.8em;
-  text-align: center;
   margin: 0rem;
 }
 div#helpers a {
   display: inline-block;
   margin: 0rem 1rem 1rem 1rem;
 }
-form {
+form#bitrateinfo_form {
   display: block;
+  position: relative;
   margin: 0rem 0rem 1rem 0rem;
   padding: 0rem;
   border: none;
 }
-input:placeholder {
-  color: #909993;
+input#bitrateinfo_input::placeholder {
+  color: var(--bitrate-background);
+  opacity: 1;
+}
+input#bitrateinfo_input:focus::placeholder {
+  color: var(--bitrate-foreground);
+  opacity: 1;
 }
 input#bitrateinfo_input {
   box-sizing: border-box;
   display: block;
-  float: left;
-  width: calc(100% - 32px);
-  height: 32px;
-  margin: 0em;
-  padding: 4px 8px;
+  width: calc(100% - 2lh - 2px);
+  margin: 0rem;
+  padding: 0.3rem 0.7rem;
   text-align: left;
   font: inherit;
-  font-size: inherit;
-  color: #2f2f2f;
-  background-color: #ffffff;
-  border: 1px solid #951414;
-  border-right: none;
-  border-radius: 0em;
+  color: var(--bitrate-background);
+  background-color: var(--bitrate-foreground);
+  border: 2px solid var(--bitrate-foreground);
+  border-radius: 0rem;
+  border-top-left-radius: 0.2em;
+  border-bottom-left-radius: 0.2em;
 }
 input#bitrateinfo_input:focus {
   outline: none;
-  border-color: #050404;
+  color: var(--bitrate-foreground);
+  background-color: var(--bitrate-background);
 }
 button#bitrateinfo_submit {
   box-sizing: border-box;
   display: block;
-  width: 32px;
-  height: 32px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 2lh;
+  height: calc(1lh + 0.6rem + 4px);
   margin: 0em;
   padding: 0px;
   cursor: pointer;
   text-align: center;
   font: inherit;
   font-size: inherit;
-  color: #ffffff;
-  border: 1px solid #951414;
-  border-radius: 0em;
-  background: #951414 url(../favicon.svg) no-repeat center;
+  color: var(--bitrate-background);
+  background-color: var(--bitrate-foreground);
+  border: 2px solid var(--bitrate-foreground);
+  border-radius: 0rem;
+  border-top-right-radius: 0.2em;
+  border-bottom-right-radius: 0.2em;
   overflow: hidden;
-  color: transparent;
 }
+button#bitrateinfo_submit:hover,
 button#bitrateinfo_submit:focus,
 button#bitrateinfo_submit:active {
   outline: none;
-  border-color: #050404;
+  border-color: var(--bitrate-link);
+  background-color: var(--bitrate-link);
 }
 table#legend {
   width: 100%;
@@ -101,9 +125,9 @@ table#legend thead {
   font-weight: bold;
 }
 table#legend td {
-  border: 1px solid #c6ccc8;
-  background-color: #ffffff;
-  padding: 4px 8px;
+  border: 1px solid var(--bitrate-foreground);
+  background-color: var(--bitrate-background);
+  padding: 0.3rem 0.7rem;
 }
 td.canonical:first-letter {
   text-transform: uppercase;
@@ -111,9 +135,8 @@ td.canonical:first-letter {
 table#bitrateinfo_result {
   width: 100%;
   min-height: 1rem;
-  margin: 0rem 0rem 1rem 0rem;
+  margin: 0rem;
   border-collapse: collapse;
-  color: #ffffff;
   text-align: center;
   background-color: transparent;
 }
@@ -122,29 +145,71 @@ table#bitrateinfo_result > thead {
 }
 table#bitrateinfo_result td {
   display: block;
-  margin: 0rem;
-  padding: 4px 8px;
-  border-radius: 1em;
-  background-color: #707272;
-}
-table#bitrateinfo_result td:first-child {
-  margin-bottom: 1rem;
-}
-table#bitrateinfo_result td:last-child {
-  margin-top: 1rem;
+  box-sizing: border-box;
+  margin: 0rem 0rem 1rem 0rem;
+  padding: 0.3rem 0.7rem;
+  border: 2px solid var(--bitrate-foreground);
+  border-radius: 0.2rem;
+  color: var(--bitrate-background);
+  background-color: var(--bitrate-foreground);
 }
 a:link,
 a:visited {
-  color: #4a4747;
+  color: var(--bitrate-foreground);
   text-decoration: none;
 }
 a:hover,
 a:focus,
 a:active {
   outline: none;
-  color: #1e57ba;
+  color: var(--bitrate-link);
   text-decoration: underline;
 }
 .hidden {
   display: none;
+}
+.error {
+    animation: shake 1s normal linear;
+}
+@keyframes shake {
+    0% {
+        transform: translateX(0.8rem);
+    }
+    10% {
+        transform: translateX(-0.9rem);
+    }
+    20% {
+        transform: translateX(1rem);
+    }
+    30% {
+        transform: translateX(-1rem);
+    }
+    40% {
+        transform: translateX(0.8rem);
+    }
+    50% {
+        transform: translateX(-0.6rem);
+    }
+    60% {
+        transform: translateX(0.4rem);
+    }
+    70% {
+        transform: translateX(-0.3rem);
+    }
+    80% {
+        transform: translateX(0.2rem);
+    }
+    90% {
+        transform: translateX(-0.1rem);
+    }
+    100% {
+        transform: translateX(0rem);
+    }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bitrate-background: #000000;
+    --bitrate-foreground: #ffffff;
+    --bitrate-link: #00ffff;
+  }
 }

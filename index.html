@@ -3,22 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="initial-scale = 1.0">
-  <meta name="description" content="A web app for calculating bit budgets">
+  <meta name="description" content="Calculate your bit budget">
   <title>bitrate.info</title>
-  <link rel="icon" sizes="32x32" type="image/x-icon" href="favicon.ico">
   <link rel="icon" sizes="any" type="image/svg+xml" href="favicon.svg">
   <link type="text/css" href="css/bitrateinfo.css" rel="stylesheet">
   <script type="text/javascript" src="js/bitrateinfo.js"></script>
 </head>
 <body>
-  <h1>A web app for calculating bit budgets</h1>
+  <h1>Calculate your bit budget</h1>
   <noscript>
       <p role="alert">This resource requires a JavaScript-enabled browser.</p>
   </noscript>
   <div id="bitrateinfo_container" role="application" class="hidden">
     <form id="bitrateinfo_form" action="index.html">
-      <input type="text" id="bitrateinfo_input" value="" placeholder="Type your bit rate query in natural language." aria-label="Type your bitrate query in natural language">
-      <button type="submit" id="bitrateinfo_submit">Calculate</button>
+      <input type="text" id="bitrateinfo_input" value="" placeholder="Enter your bit rate query in natural language." aria-label="Enter your bitrate query in natural language" autofocus>
+      <button type="submit" id="bitrateinfo_submit" aria-label="Calculate">=</button>
     </form>
     <table id="bitrateinfo_result" role="status" aria-label="Result of calculation" class="hidden">
       <thead>
@@ -37,7 +36,8 @@
       </tbody>
     </table>
     <div id="helpers">
-      <a id="button_example" href="#" role="button">Show me an example!</a><a id="button_lexicon" href="#" role="button">What words can I use?</a>
+      <a id="button_example" href="#" role="button">Show me an example!</a>
+      <a id="switch_lexicon" href="#" role="switch">What words can I use?</a>
     </div>
   </div>
 </body>
