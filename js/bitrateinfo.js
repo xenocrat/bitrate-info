@@ -301,7 +301,7 @@ var bitrateinfo = {
     }
   ],
   examples: [
-    "5 mins at 800 Kbps in mebibytes",
+    "5 mins at 800 Kbps",
     "1 hour of xdcam-ex in GBs",
     "60 minutes on bdr25",
     "How much audio fits on a cd?",
@@ -318,14 +318,21 @@ var bitrateinfo = {
     "1 Mbps on cdr",
     "cdda on cd",
     "2 hours on bdr50",
-    "What bitrate for a 25 min bdr66?",
+    "Bitrate for 25 min on bdr66?",
     "90 mins at 50 mb/s in GiB",
     "120 minutes on DVD-DL in kbps",
     "dnxhd220 for 180 mins in GiB",
     "float on cdr",
-    "Show me 30 minutes of hdcam in GB",
+    "30 minutes of hdcam in GB",
     "mono for 2.5 hours",
-    "2 hours of mp3"
+    "2 hours of mp3",
+    "bdr100 at 100mbps",
+    "2 hours 100 gigs",
+    "1 hour mp3 in mebibytes",
+    "dnxhd220 1 TB in mins",
+    "5 hrs cdr in mb/s",
+    "10 min @ 100 m/s",
+    "bdr25 at 75 mb/s in min"
   ],
   ui: {
     container: undefined,
@@ -346,24 +353,29 @@ var bitrateinfo = {
       bitrateinfo.ui.lexicon = document.getElementById("switch_lexicon");
 
       // Add handlers.
+      window.addEventListener(
+        "popstate",
+        bitrateinfo.fn.popstate
+      );
+
       bitrateinfo.ui.form.addEventListener(
         "submit",
-        bitrateinfo.fn.update
+        bitrateinfo.fn.change
       );
 
       bitrateinfo.ui.input.addEventListener(
         "change",
-        bitrateinfo.fn.update
+        bitrateinfo.fn.change
       );
 
       bitrateinfo.ui.example.addEventListener(
         "click",
-        bitrateinfo.fn.example
+        bitrateinfo.fn.show_example
       );
 
       bitrateinfo.ui.lexicon.addEventListener(
         "click",
-        bitrateinfo.fn.lexicon
+        bitrateinfo.fn.toggle_lexicon
       );
 
       // Unhide the app.
@@ -384,12 +396,9 @@ var bitrateinfo = {
       document.getElementById("bitrateinfo_value1").innerHTML = "";
       document.getElementById("bitrateinfo_value2").innerHTML = "";
     },
-    query: function() {
+    prepare: function() {
       var found;
       var query = bitrateinfo.ui.input.value;
-
-      // Set the URL.
-      bitrateinfo.fn.set_query();
 
       // Convert all white space to a single space.
       query = query.replace(/\s+/g, " ");
@@ -401,33 +410,40 @@ var bitrateinfo = {
       query = query.replace(/([0-9])([A-Za-z])/g, "$1 $2");
 
       // Split the query into an array.
-      bitrateinfo.query[0] = query.split(
-        " "
-      ).filter(
+      bitrateinfo.query[0] = query.split(" ").filter(
         (item) => item !== ""
       );
 
+      // Set "parsed" flags to false.
       for (var z = 0; z < bitrateinfo.query[0].length; z++) {
-         // Zero the "parsed" flag.
          bitrateinfo.query[1][z] = false;
       }
     },
-    update: function(e) {
+    popstate: function(e) {
+      e.preventDefault();
+
+      if (typeof e.state === "string") {
+        bitrateinfo.ui.input.value = e.state;
+        bitrateinfo.fn.analyze();
+      }
+    },
+    change: function(e) {
       e.preventDefault();
       bitrateinfo.fn.analyze();
+      bitrateinfo.fn.set_query();
     },
     analyze: function() {
       bitrateinfo.fn.reset();
-      bitrateinfo.fn.query();
+      bitrateinfo.fn.prepare();
 
       for (var z = 0; z < bitrateinfo.query[0].length; z++) {
-         bitrateinfo.fn.parser(z);
+         bitrateinfo.fn.parse(z);
       }
 
       bitrateinfo.fn.calculate();
       bitrateinfo.fn.display();
     },
-    parser: function(z) {
+    parse: function(z) {
       var parsed = {
         identifier: undefined,
         datatype: undefined,
@@ -506,7 +522,7 @@ var bitrateinfo = {
 
           // Read ahead in search of a unit for this number.
           if (bitrateinfo.query[0].length > (z + 1)) {
-            var readAhead = bitrateinfo.fn.parser(z + 1);
+            var readAhead = bitrateinfo.fn.parse(z + 1);
 
             if (readAhead.identifier == "unit") {
               // Found a value!
@@ -822,6 +838,12 @@ var bitrateinfo = {
         bitrateinfo.ui.input.value = query.get("q");
         bitrateinfo.fn.analyze();
       }
+
+      history.replaceState(
+        bitrateinfo.ui.input.value,
+        "",
+        document.location
+      );
     },
     set_query: function() {
         var url = new URL(document.location);
@@ -834,13 +856,14 @@ var bitrateinfo = {
         }
 
         url.search = query.toString();
-        history.replaceState(
-          bitrateinfo.query,
+
+        history.pushState(
+          bitrateinfo.ui.input.value,
           "",
           url.toString()
         );
     },
-    example: function(e) {
+    show_example: function(e) {
       e.preventDefault();
 
       // Pick a random start for the loop of examples.
@@ -850,8 +873,9 @@ var bitrateinfo = {
 
       bitrateinfo.ui.input.value = bitrateinfo.examples[n];
       bitrateinfo.fn.analyze();
+      bitrateinfo.fn.set_query();
     },
-    lexicon: function(e) {
+    toggle_lexicon: function(e) {
       e.preventDefault();
 
       var legend = document.getElementById("legend");
