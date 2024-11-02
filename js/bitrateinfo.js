@@ -579,6 +579,7 @@ var bitrateinfo = {
           computed.canonical = "seconds";
           computed.singular = "second";
 
+        // Calculating time:
         } else if (
           bitrateinfo.values[0].datatype == "rate"
           && bitrateinfo.values[1].datatype == "size"
@@ -620,6 +621,7 @@ var bitrateinfo = {
           computed.canonical = "bytes";
           computed.singular = "byte";
 
+        // Calculating size:
         } else if (
           bitrateinfo.values[0].datatype == "rate"
           && bitrateinfo.values[1].datatype == "time"
@@ -661,6 +663,7 @@ var bitrateinfo = {
           computed.canonical = "bits per second";
           computed.singular = "bit per second";
 
+        // Calculating rate:
         } else if (
           bitrateinfo.values[0].datatype == "time"
           && bitrateinfo.values[1].datatype == "size"
@@ -699,7 +702,6 @@ var bitrateinfo = {
           computed.canonical = bitrateinfo.values[2].canonical;
           computed.singular = bitrateinfo.values[2].singular;
           computed.hint = true;
-
         } else {
           // Search for a preferred display unit.
           preferred: {
@@ -817,8 +819,10 @@ var bitrateinfo = {
           }
         }
 
+        bitrateinfo.ui.form.classList.remove("error");
         bitrateinfo.ui.result.classList.remove("hidden");
       } else {
+        // Trigger the error animation.
         bitrateinfo.ui.form.classList.add("error");
 
         setTimeout(

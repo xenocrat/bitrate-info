@@ -169,7 +169,7 @@ a:active {
   display: none;
 }
 .error {
-    animation: shake 1s normal linear;
+    animation: shake 1s normal ease;
 }
 @keyframes shake {
     0% {
