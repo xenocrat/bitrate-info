@@ -343,7 +343,8 @@ var bitrateinfo = {
     lexicon: undefined
   },
   fn: {
-    init: function() {
+    init: function(
+    ) {
       // Define UI elements.
       bitrateinfo.ui.container = document.getElementById("bitrateinfo_container");
       bitrateinfo.ui.form = document.getElementById("bitrateinfo_form");
@@ -384,7 +385,8 @@ var bitrateinfo = {
       // Get query param.
       bitrateinfo.fn.get_query();
     },
-    reset: function() {
+    reset: function(
+    ) {
       bitrateinfo.query[0] = new Array();
       bitrateinfo.query[1] = new Array();
       bitrateinfo.values = new Array();
@@ -396,7 +398,8 @@ var bitrateinfo = {
       document.getElementById("bitrateinfo_value1").innerHTML = "";
       document.getElementById("bitrateinfo_value2").innerHTML = "";
     },
-    prepare: function() {
+    prepare: function(
+    ) {
       var found;
       var query = bitrateinfo.ui.input.value;
 
@@ -419,7 +422,9 @@ var bitrateinfo = {
          bitrateinfo.query[1][z] = false;
       }
     },
-    popstate: function(e) {
+    popstate: function(
+      e
+    ) {
       e.preventDefault();
 
       if (typeof e.state === "string") {
@@ -427,12 +432,15 @@ var bitrateinfo = {
         bitrateinfo.fn.analyze();
       }
     },
-    change: function(e) {
+    change: function(
+      e
+    ) {
       e.preventDefault();
       bitrateinfo.fn.analyze();
       bitrateinfo.fn.set_query();
     },
-    analyze: function() {
+    analyze: function(
+    ) {
       bitrateinfo.fn.reset();
       bitrateinfo.fn.prepare();
 
@@ -443,7 +451,9 @@ var bitrateinfo = {
       bitrateinfo.fn.calculate();
       bitrateinfo.fn.display();
     },
-    parse: function(z) {
+    parse: function(
+      z
+    ) {
       var parsed = {
         identifier: undefined,
         datatype: undefined,
@@ -545,7 +555,8 @@ var bitrateinfo = {
         return parsed;
       }
     },
-    calculate: function() {
+    calculate: function(
+    ) {
       var computed = {
         identifier: undefined,
         datatype: undefined,
@@ -728,7 +739,8 @@ var bitrateinfo = {
 
       bitrateinfo.values[2] = computed;
     },
-    display: function() {
+    display: function(
+    ) {
       if (
         bitrateinfo.values.length == 3
         && bitrateinfo.values[2].identifier == "result"
@@ -833,7 +845,8 @@ var bitrateinfo = {
         );
       }
     },
-    get_query: function() {
+    get_query: function(
+    ) {
       var query = new URLSearchParams(
         document.location.search
       );
@@ -849,7 +862,8 @@ var bitrateinfo = {
         document.location
       );
     },
-    set_query: function() {
+    set_query: function(
+    ) {
         var url = new URL(document.location);
         var query = new URLSearchParams();
 
@@ -867,7 +881,9 @@ var bitrateinfo = {
           url.toString()
         );
     },
-    show_example: function(e) {
+    show_example: function(
+      e
+    ) {
       e.preventDefault();
 
       // Pick a random start for the loop of examples.
@@ -879,7 +895,9 @@ var bitrateinfo = {
       bitrateinfo.fn.analyze();
       bitrateinfo.fn.set_query();
     },
-    toggle_lexicon: function(e) {
+    toggle_lexicon: function(
+      e
+    ) {
       e.preventDefault();
 
       var legend = document.getElementById("legend");
