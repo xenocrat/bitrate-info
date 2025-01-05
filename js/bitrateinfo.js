@@ -792,20 +792,9 @@ var bitrateinfo = {
                   mm = mm + 1;
                 }
 
-                // Add leading zeros to a number.
-                function leadingZeros(num, max) {
-                  var str = String(num);
-
-                  while (str.length < max) {
-                    str = "0" + str;
-                  }
-
-                  return str;
-                }
-
-                hh = leadingZeros(hh, 2);
-                mm = leadingZeros(mm, 2);
-                ss = leadingZeros(ss, 2);
+                hh = hh.toString().padStart(2, "0");
+                mm = mm.toString().padStart(2, "0");
+                ss = ss.toString().padStart(2, "0");
                 result = hh + ":" + mm + ":" + ss;
               } else {
                 // Proceed as normal.
