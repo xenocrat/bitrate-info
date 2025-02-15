@@ -277,18 +277,26 @@ var bitrateinfo = {
     },
     {
       canonical: "PCM Mono 48 KHz 16-Bit",
-      lexicon: "mono",
+      lexicon: "pcm16",
       identifier: "keyword",
       datatype: "rate",
       quantity: 768000,
       magnitude: 1
     },
     {
-      canonical: "PCM Stereo 48 KHz 32-Bit",
-      lexicon: "float",
+      canonical: "PCM Mono 48 KHz 24-Bit",
+      lexicon: "pcm24",
       identifier: "keyword",
       datatype: "rate",
-      quantity: 3072000,
+      quantity: 1152000,
+      magnitude: 1
+    },
+    {
+      canonical: "PCM Mono 48 KHz 32-Bit",
+      lexicon: "pcm32",
+      identifier: "keyword",
+      datatype: "rate",
+      quantity: 1536000,
       magnitude: 1
     },
     {
@@ -855,6 +863,7 @@ var bitrateinfo = {
     ) {
         var url = new URL(document.location);
         var query = new URLSearchParams();
+        var querystring = "";
 
         if (bitrateinfo.ui.input.value == "") {
           query.delete("q");
@@ -862,7 +871,12 @@ var bitrateinfo = {
           query.set("q", bitrateinfo.ui.input.value);
         }
 
-        url.search = query.toString();
+        querystring = query.toString();
+
+        if (url.search.substring(1) == querystring)
+          return;
+
+        url.search = querystring;
 
         history.pushState(
           bitrateinfo.ui.input.value,
