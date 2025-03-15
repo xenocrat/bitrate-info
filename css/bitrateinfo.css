@@ -4,6 +4,7 @@
     --bitrate-background: #ffffff;
     --bitrate-foreground: #000000;
     --bitrate-link: #0000ff;
+    --bitrate-error: #ff0000;
     --bitrate-highlight: #ff7f00;
 }
 *::selection {
@@ -113,6 +114,10 @@ button#bitrateinfo_submit:active {
   border-color: var(--bitrate-link);
   background-color: var(--bitrate-link);
 }
+.error button#bitrateinfo_submit {
+  background-color: var(--bitrate-error);
+  border-color: var(--bitrate-error);
+}
 table#legend {
   width: 100%;
   margin: 0rem 0rem 1rem 0rem;
@@ -173,30 +178,33 @@ a:active {
 }
 @keyframes shake {
     0% {
+        transform: translateX(+0.0rem);
+    }
+    9% {
         transform: translateX(+0.8rem);
     }
-    10% {
+    18% {
         transform: translateX(-0.9rem);
     }
-    20% {
+    27% {
         transform: translateX(+1.0rem);
     }
-    30% {
+    36% {
         transform: translateX(-1.0rem);
     }
-    40% {
+    45% {
         transform: translateX(+0.8rem);
     }
-    50% {
+    54% {
         transform: translateX(-0.6rem);
     }
-    60% {
+    63% {
         transform: translateX(+0.4rem);
     }
-    70% {
+    72% {
         transform: translateX(-0.3rem);
     }
-    80% {
+    81% {
         transform: translateX(+0.2rem);
     }
     90% {
