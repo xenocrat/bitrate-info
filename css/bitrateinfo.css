@@ -56,14 +56,6 @@ form#bitrateinfo_form {
   padding: 0rem;
   border: none;
 }
-input#bitrateinfo_input::placeholder {
-  color: var(--bitrate-background);
-  opacity: 1;
-}
-input#bitrateinfo_input:focus::placeholder {
-  color: var(--bitrate-foreground);
-  opacity: 1;
-}
 input#bitrateinfo_input {
   box-sizing: border-box;
   display: block;
@@ -79,10 +71,18 @@ input#bitrateinfo_input {
   border-top-left-radius: 0.2em;
   border-bottom-left-radius: 0.2em;
 }
+input#bitrateinfo_input::placeholder {
+  color: var(--bitrate-background);
+  opacity: 1;
+}
 input#bitrateinfo_input:focus {
   outline: none;
   color: var(--bitrate-foreground);
   background-color: var(--bitrate-background);
+}
+input#bitrateinfo_input:focus::placeholder {
+  color: var(--bitrate-foreground);
+  opacity: 1;
 }
 button#bitrateinfo_submit {
   box-sizing: border-box;
@@ -173,37 +173,37 @@ a:active {
 }
 @keyframes shake {
     0% {
-        transform: translateX(0.8rem);
+        transform: translateX(+0.8rem);
     }
     10% {
         transform: translateX(-0.9rem);
     }
     20% {
-        transform: translateX(1rem);
+        transform: translateX(+1.0rem);
     }
     30% {
-        transform: translateX(-1rem);
+        transform: translateX(-1.0rem);
     }
     40% {
-        transform: translateX(0.8rem);
+        transform: translateX(+0.8rem);
     }
     50% {
         transform: translateX(-0.6rem);
     }
     60% {
-        transform: translateX(0.4rem);
+        transform: translateX(+0.4rem);
     }
     70% {
         transform: translateX(-0.3rem);
     }
     80% {
-        transform: translateX(0.2rem);
+        transform: translateX(+0.2rem);
     }
     90% {
         transform: translateX(-0.1rem);
     }
     100% {
-        transform: translateX(0rem);
+        transform: translateX(+0.0rem);
     }
 }
 @media (prefers-color-scheme: dark) {
@@ -212,4 +212,9 @@ a:active {
     --bitrate-foreground: #ffffff;
     --bitrate-link: #00ffff;
   }
+}
+@media (prefers-reduced-motion) {
+    .error {
+        animation: none;
+    }
 }
