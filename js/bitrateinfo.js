@@ -387,8 +387,9 @@ var bitrateinfo = {
         bitrateinfo.fn.toggle_lexicon
       );
 
-      // Unhide the app.
+      // Unhide the app and focus the input.
       bitrateinfo.ui.container.classList.remove("hidden");
+      bitrateinfo.ui.input.focus();
 
       // Get query param.
       bitrateinfo.fn.get_query();
