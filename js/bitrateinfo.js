@@ -4,6 +4,7 @@
 var bitrateinfo = {
   query: new Array(2),
   values: new Array(),
+  example: undefined,
   data: [
     // Time:
     {
@@ -890,12 +891,17 @@ var bitrateinfo = {
     ) {
       e.preventDefault();
 
-      // Pick a random start for the loop of examples.
-      var n = Math.round(
-        Math.random() * (bitrateinfo.examples.length - 1)
-      );
+      var n = undefined;
+
+      // Pick a random example without obvious repetition.
+      do {
+        n = Math.round(
+          Math.random() * (bitrateinfo.examples.length - 1)
+        );
+      } while (n === bitrateinfo.example);
 
       bitrateinfo.ui.input.value = bitrateinfo.examples[n];
+      bitrateinfo.example = n;
       bitrateinfo.fn.analyze();
       bitrateinfo.fn.set_query();
     },
