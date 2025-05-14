@@ -403,6 +403,7 @@ var bitrateinfo = {
 
       bitrateinfo.ui.result.classList.add("hidden");
       bitrateinfo.ui.form.classList.remove("error");
+      bitrateinfo.ui.result.classList.remove("show");
 
       document.getElementById("bitrateinfo_value0").innerHTML = "";
       document.getElementById("bitrateinfo_value1").innerHTML = "";
@@ -832,6 +833,14 @@ var bitrateinfo = {
 
         bitrateinfo.ui.form.classList.remove("error");
         bitrateinfo.ui.result.classList.remove("hidden");
+        bitrateinfo.ui.result.classList.add("show");
+
+        setTimeout(
+          function() {
+            bitrateinfo.ui.result.classList.remove("show");
+          },
+          1000
+        );
       } else {
         // Trigger the error animation.
         bitrateinfo.ui.form.classList.add("error");

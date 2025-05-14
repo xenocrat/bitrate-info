@@ -114,10 +114,6 @@ button#bitrateinfo_submit:active {
   border-color: var(--bitrate-link);
   background-color: var(--bitrate-link);
 }
-.error button#bitrateinfo_submit {
-  background-color: var(--bitrate-error);
-  border-color: var(--bitrate-error);
-}
 table#legend {
   width: 100%;
   margin: 0rem 0rem 1rem 0rem;
@@ -173,8 +169,37 @@ a:active {
 .hidden {
   display: none;
 }
+.show {
+  animation: boing 1s normal ease;
+}
 .error {
-    animation: shake 1s normal ease;
+  animation: shake 1s normal ease;
+}
+.error input#bitrateinfo_input,
+.error button#bitrateinfo_submit {
+  color: var(--bitrate-background);
+  background-color: var(--bitrate-error);
+  border-color: var(--bitrate-error);
+}
+@keyframes boing {
+    0% {
+        transform: scale(1.00);
+    }
+    10% {
+        transform: scale(1.04);
+    }
+    20% {
+        transform: scale(0.98);
+    }
+    30% {
+        transform: scale(1.02);
+    }
+    40% {
+        transform: scale(0.99);
+    }
+    50% {
+        transform: scale(1.00);
+    }
 }
 @keyframes shake {
     0% {
@@ -222,6 +247,7 @@ a:active {
   }
 }
 @media (prefers-reduced-motion) {
+    .show,
     .error {
         animation: none;
     }
