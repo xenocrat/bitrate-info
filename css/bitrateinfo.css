@@ -5,7 +5,7 @@
     --bitrate-foreground: #000000;
     --bitrate-link: #0000ff;
     --bitrate-error: #ff0000;
-    --bitrate-highlight: #ff7f00;
+    --bitrate-highlight: #00ffff;
 }
 *::selection {
   background-color: var(--bitrate-highlight);
@@ -113,6 +113,10 @@ button#bitrateinfo_submit:active {
   outline: none;
   border-color: var(--bitrate-link);
   background-color: var(--bitrate-link);
+}
+button#bitrateinfo_submit:focus-visible {
+    outline: 2px solid var(--bitrate-background);
+    outline-offset: -6px;
 }
 table#legend {
   width: 100%;
@@ -244,6 +248,7 @@ a:active {
     --bitrate-background: #000000;
     --bitrate-foreground: #ffffff;
     --bitrate-link: #00ffff;
+    --bitrate-highlight: #0000ff;
   }
 }
 @media (prefers-reduced-motion) {
