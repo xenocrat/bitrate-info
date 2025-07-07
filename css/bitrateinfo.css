@@ -1,17 +1,16 @@
-
 :root {
-    color-scheme: light dark;
-    --bitrate-background: #ffffff;
-    --bitrate-foreground: #000000;
-    --bitrate-link: #0000ff;
-    --bitrate-error: #ff0000;
-    --bitrate-highlight: #00ffff;
+  color-scheme: light dark;
+  --bitrate-background: #ffffff;
+  --bitrate-foreground: #000000;
+  --bitrate-link: #0000ff;
+  --bitrate-error: #ff0000;
+  --bitrate-highlight: #00ffff;
 }
 *::selection {
   background-color: var(--bitrate-highlight);
 }
 html {
-    font-size: 20px;
+  font-size: 20px;
 }
 body {
   font-family: sans-serif;
@@ -115,8 +114,8 @@ button#bitrateinfo_submit:active {
   background-color: var(--bitrate-link);
 }
 button#bitrateinfo_submit:focus-visible {
-    outline: 2px solid var(--bitrate-background);
-    outline-offset: -6px;
+  color: var(--bitrate-link);
+  background-color: var(--bitrate-background);
 }
 table#legend {
   width: 100%;
@@ -186,62 +185,62 @@ a:active {
   border-color: var(--bitrate-error);
 }
 @keyframes boing {
-    0% {
-        transform: scale(1.00);
-    }
-    10% {
-        transform: scale(1.04);
-    }
-    20% {
-        transform: scale(0.98);
-    }
-    30% {
-        transform: scale(1.02);
-    }
-    40% {
-        transform: scale(0.99);
-    }
-    50% {
-        transform: scale(1.00);
-    }
+  0% {
+      transform: scale(1.00);
+  }
+  10% {
+      transform: scale(1.04);
+  }
+  20% {
+      transform: scale(0.98);
+  }
+  30% {
+      transform: scale(1.02);
+  }
+  40% {
+      transform: scale(0.99);
+  }
+  50% {
+      transform: scale(1.00);
+  }
 }
 @keyframes shake {
-    0% {
-        transform: translateX(+0.0rem);
-    }
-    9% {
-        transform: translateX(+0.8rem);
-    }
-    18% {
-        transform: translateX(-0.9rem);
-    }
-    27% {
-        transform: translateX(+1.0rem);
-    }
-    36% {
-        transform: translateX(-1.0rem);
-    }
-    45% {
-        transform: translateX(+0.8rem);
-    }
-    54% {
-        transform: translateX(-0.6rem);
-    }
-    63% {
-        transform: translateX(+0.4rem);
-    }
-    72% {
-        transform: translateX(-0.3rem);
-    }
-    81% {
-        transform: translateX(+0.2rem);
-    }
-    90% {
-        transform: translateX(-0.1rem);
-    }
-    100% {
-        transform: translateX(+0.0rem);
-    }
+  0% {
+      transform: translateX(+0.0rem);
+  }
+  9% {
+      transform: translateX(+0.8rem);
+  }
+  18% {
+      transform: translateX(-0.9rem);
+  }
+  27% {
+      transform: translateX(+1.0rem);
+  }
+  36% {
+      transform: translateX(-1.0rem);
+  }
+  45% {
+      transform: translateX(+0.8rem);
+  }
+  54% {
+      transform: translateX(-0.6rem);
+  }
+  63% {
+      transform: translateX(+0.4rem);
+  }
+  72% {
+      transform: translateX(-0.3rem);
+  }
+  81% {
+      transform: translateX(+0.2rem);
+  }
+  90% {
+      transform: translateX(-0.1rem);
+  }
+  100% {
+      transform: translateX(+0.0rem);
+  }
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -252,8 +251,8 @@ a:active {
   }
 }
 @media (prefers-reduced-motion) {
-    .show,
-    .error {
-        animation: none;
-    }
+  .show,
+  .error {
+      animation: none;
+  }
 }
