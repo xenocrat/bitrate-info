@@ -106,8 +106,7 @@ button#bitrateinfo_submit {
   border-bottom-right-radius: 0.2em;
   overflow: hidden;
 }
-button#bitrateinfo_submit:focus,
-button#bitrateinfo_submit:active {
+button#bitrateinfo_submit:focus {
   outline: none;
   color: var(--bitrate-link);
   border-color: var(--bitrate-link);
@@ -158,8 +157,7 @@ a:visited {
   color: var(--bitrate-link);
   text-decoration: none;
 }
-a:focus,
-a:active {
+a:focus {
   outline: none;
   text-decoration: underline;
 }
