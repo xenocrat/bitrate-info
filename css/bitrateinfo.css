@@ -155,13 +155,12 @@ table#bitrateinfo_result td {
 }
 a:link,
 a:visited {
-  color: var(--bitrate-foreground);
+  color: var(--bitrate-link);
   text-decoration: none;
 }
 a:focus,
 a:active {
   outline: none;
-  color: var(--bitrate-link);
   text-decoration: underline;
 }
 .hidden {
