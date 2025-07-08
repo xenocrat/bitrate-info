@@ -106,15 +106,11 @@ button#bitrateinfo_submit {
   border-bottom-right-radius: 0.2em;
   overflow: hidden;
 }
-button#bitrateinfo_submit:hover,
 button#bitrateinfo_submit:focus,
 button#bitrateinfo_submit:active {
   outline: none;
-  border-color: var(--bitrate-link);
-  background-color: var(--bitrate-link);
-}
-button#bitrateinfo_submit:focus-visible {
   color: var(--bitrate-link);
+  border-color: var(--bitrate-link);
   background-color: var(--bitrate-background);
 }
 table#legend {
@@ -162,7 +158,6 @@ a:visited {
   color: var(--bitrate-foreground);
   text-decoration: none;
 }
-a:hover,
 a:focus,
 a:active {
   outline: none;
