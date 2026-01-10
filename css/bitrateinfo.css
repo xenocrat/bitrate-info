@@ -1,10 +1,15 @@
 :root {
   color-scheme: light dark;
-  --bitrate-background: #ffffff;
-  --bitrate-foreground: #000000;
-  --bitrate-link: #0000ff;
-  --bitrate-error: #ff0000;
-  --bitrate-highlight: #00ffff;
+  --bitrate-colour-white: #ffffff;
+  --bitrate-colour-black: #000000;
+  --bitrate-colour-blue: #0000ff;
+  --bitrate-colour-red: #ff0000;
+  --bitrate-colour-cyan: #00ffff;
+  --bitrate-background: var(--bitrate-colour-white);
+  --bitrate-foreground: var(--bitrate-colour-black);
+  --bitrate-link: var(--bitrate-colour-blue);
+  --bitrate-error: var(--bitrate-colour-red);
+  --bitrate-highlight: var(--bitrate-colour-cyan);
 }
 *::selection {
   background-color: var(--bitrate-highlight);
@@ -234,12 +239,18 @@ a:focus {
       transform: translateX(+0.0rem);
   }
 }
+@media (prefers-contrast: less) {
+  :root {
+    --bitrate-colour-white: #cccccc;
+    --bitrate-colour-black: #333333;
+  }
+}
 @media (prefers-color-scheme: dark) {
   :root {
-    --bitrate-background: #000000;
-    --bitrate-foreground: #ffffff;
-    --bitrate-link: #00ffff;
-    --bitrate-highlight: #0000ff;
+    --bitrate-background: var(--bitrate-colour-black);
+    --bitrate-foreground: var(--bitrate-colour-white);
+    --bitrate-link: var(--bitrate-colour-cyan);
+    --bitrate-highlight: var(--bitrate-colour-blue);
   }
 }
 @media (prefers-reduced-motion) {
