@@ -1,12 +1,18 @@
 :root {
   color-scheme: light dark;
   --bitrate-colour-white: #ffffff;
+  --bitrate-colour-white-pcl: #cccccc;
   --bitrate-colour-black: #000000;
+  --bitrate-colour-black-pcl: #333333;
   --bitrate-colour-blue: #0000ff;
   --bitrate-colour-red: #ff0000;
   --bitrate-colour-cyan: #00ffff;
-  --bitrate-background: var(--bitrate-colour-white);
-  --bitrate-foreground: var(--bitrate-colour-black);
+  --bitrate-background-csl: var(--bitrate-colour-white);
+  --bitrate-foreground-csl: var(--bitrate-colour-black);
+  --bitrate-background-csd: var(--bitrate-colour-black);
+  --bitrate-foreground-csd: var(--bitrate-colour-white);
+  --bitrate-background: var(--bitrate-background-csl);
+  --bitrate-foreground: var(--bitrate-foreground-csl);
   --bitrate-link: var(--bitrate-colour-blue);
   --bitrate-error: var(--bitrate-colour-red);
   --bitrate-highlight: var(--bitrate-colour-cyan);
@@ -241,14 +247,16 @@ a:focus {
 }
 @media (prefers-contrast: less) {
   :root {
-    --bitrate-colour-white: #cccccc;
-    --bitrate-colour-black: #333333;
+    --bitrate-background-csl: var(--bitrate-colour-white-pcl);
+    --bitrate-foreground-csl: var(--bitrate-colour-black-pcl);
+    --bitrate-background-csd: var(--bitrate-colour-black-pcl);
+    --bitrate-foreground-csd: var(--bitrate-colour-white-pcl);
   }
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --bitrate-background: var(--bitrate-colour-black);
-    --bitrate-foreground: var(--bitrate-colour-white);
+    --bitrate-background: var(--bitrate-background-csd);
+    --bitrate-foreground: var(--bitrate-foreground-csd);
     --bitrate-link: var(--bitrate-colour-cyan);
     --bitrate-highlight: var(--bitrate-colour-blue);
   }
